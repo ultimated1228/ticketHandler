@@ -46,3 +46,8 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
+
+
+// Inform Express.js which template engine we're using
+app.engine('handlebars', hbs.engine);
