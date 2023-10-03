@@ -84,5 +84,5 @@ Ticket.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Ticket'
+    modelName: 'ticket'
 })
