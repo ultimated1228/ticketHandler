@@ -5,11 +5,24 @@ const Log = require('./Log')
 
 //class definition
 class Ticket extends Model {
-    // TODO Instance methods
+    // Instance methods
     async logChange(userId, oldData) {
-        return;
-    }
-}
+        const findDiff = await findDiff(this, oldData);
+        if (findDiff.length == 0) { return }
+        else {
+            const log = new Log()
+            log.type = 'Modified';
+            log.message = `${findDiff.length} changes were made on ${new Date} by ${userId}.
+${findDiff.reduce((fullString, currentString) => {
+                return `${fullString}
+${currentString}`
+            }, "")}`;
+            log.userId = userId;
+            log.ticketId = this.id;
+            log.save();
+        };
+    };
+};
 
 //model initialization
 Ticket.init({
@@ -32,11 +45,9 @@ Ticket.init({
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            //custom validator, ensures that the value of status is valid
-            statusType(status) {
-                if (status != 'Open' || 'Pending' || 'Resolved' || 'Claimed') {
-                    throw new Error("status must be `Open`, `Pending`, `Resolved`, or `Claimed`");
-                }
+            isIn: {
+                args: [['Open', 'Pending', 'Resolved', 'Claimed']],
+                msg: 'status must be `Open`, `Pending`, `Resolved`, or `Claimed`',
             },
             notNull: true
         },
@@ -46,11 +57,9 @@ Ticket.init({
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            //custom validator, ensures that the value of urgency is valid
-            urgencyType(urgency) {
-                if (urgency != 'Low' || 'Medium' || 'High') {
-                    throw new Error("urgency must be `Low`, `Medium`, or `High`");
-                }
+            isIn: {
+                args: [['Low', 'Medium', 'High']],
+                msg: 'urgency must be `Low`, `Medium`, or `High`',
             },
             notNull: true
         },
@@ -69,7 +78,7 @@ Ticket.init({
         afterCreate: (newTicket) => {
             Log.type = 'Created';
             Log.message = `Ticket number ${newTicket.id}`;
-            Log.userId =  newTicket.client;
+            Log.userId = newTicket.client;
             Log.ticketId = newTicket.id;
             return newTicket;
         },
@@ -87,4 +96,4 @@ Ticket.init({
     modelName: 'ticket'
 })
 
-//shouldn't a model.exports = Ticket; go here?
+module.exports = Ticket;
