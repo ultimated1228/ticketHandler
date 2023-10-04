@@ -1,9 +1,9 @@
-// server.js
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
+const ticketRoutes = require ('./routes/api/ticketRoutes')
 dotenv.config();
 
 const app = express();
@@ -20,7 +20,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
-// connect mysql database
+//mysql database
 const connection = mysql.createConnection({
   host: process.env.DB_HOST || '',
   user: process.env.DB_USER || '',
@@ -41,6 +41,8 @@ app.get('/', (req, res) => {
   const username = req.session.username || 'Guest';
   res.render('index', { title: 'My Express App', username });
 });
+
+app.use('/api/ticket', ticketRoutes);
 
 // incoming requests
 app.listen(port, () => {
