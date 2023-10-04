@@ -8,18 +8,13 @@ const User = require('./User');
 
 // Ticket belongsTo User
 Ticket.belongsTo(User, {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    validate: {
-        notNull: true
-    },
-    foreignKey: 'client'
+    foreignKey: 'client_id',
+    as: 'client'
 });
 // Ticket belongsTo User, prior to being claimed by a tech will be NULL
 Ticket.belongsTo(User, {
-    type: DataTypes.INTEGER,
-    allowNull: true,
-    foreignKey: 'tech'
+    foreignKey: 'tech_id',
+    as: 'tech'
 });
 
 //Ticket has many logs (I don't see an ID being created within the ticket model, so I'm not sure this is referencing the right foreign key)

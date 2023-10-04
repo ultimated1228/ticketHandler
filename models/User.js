@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../utils/connection')
 const bcrypt = require('bcrypt');
-const User = require('./Ticket')
-const User = require('./Log')
+const Ticket = require('./Ticket')
+const Log = require('./Log')
 
 class User extends Model {
     // Instance method to verify password

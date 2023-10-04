@@ -1,17 +1,24 @@
+const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
+const routes = require('./routes');
+const helpers = require('./utils/helpers');
 const session = require('express-session');
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
-const ticketRoutes = require ('./routes/api/ticketRoutes')
+const auth = require('./utils/auth');
+const handlebars = exphbs.create({helpers, auth});
+
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3001;
 
 //handlebars as the view engine
-app.engine('handlebars', exphbs());
+app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
+
+app.use(routes)
 
 //express-session
 app.use(session({
@@ -56,14 +63,7 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'My Express App', username });
 });
 
-app.use('/api/ticket', ticketRoutes);
-
 // incoming requests
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
-
-
-
-// Inform Express.js which template engine we're using
-app.engine('handlebars', hbs.engine);
