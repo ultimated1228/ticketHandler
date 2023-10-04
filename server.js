@@ -21,20 +21,34 @@ app.use(session({
 }));
 
 //mysql database
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST || '',
-  user: process.env.DB_USER || '',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || ''
-});
+const connectToDatabase = async () => {
+  try {
+    const connection = mysql.createConnection({
+      host: process.env.DB_HOST || '',
+      user: process.env.DB_USER || '',
+      password: process.env.DB_PASSWORD || '',
+      database: process.env.DB_NAME || ''
+    });
 
-connection.connect((err) => {
-  if (err) {
-    console.error('Error connecting to MySQL database: ' + err.stack);
-    return;
+    await new Promise((resolve, reject) => {
+      connection.connect((err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
+
+    console.log('Connected to MySQL database');
+  } catch (error) {
+    console.error('Error connecting to MySQL database: ' + error.stack);
+    process.exit(1); // Exit the process if unable to connect
   }
-  console.log('Connected to MySQL database');
-});
+};
+
+// Call the async function to connect to the database
+connectToDatabase();
 
 //route with handlebars view
 app.get('/', (req, res) => {
