@@ -36,6 +36,7 @@ Log.init(
                     args: [["Created", "Modified", "Message"]],
                     msg: "Type must be 'Created', 'Modified', or 'Message'",
                 },
+                notNull: true,
             },
         },
         isHidden: {
