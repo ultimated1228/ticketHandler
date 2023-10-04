@@ -8,8 +8,10 @@ const controller = {
         const newLog = await Log.create({
             ...req.body,
             user_id: req.session.user_id,
+            ticket_id: req.params.ticketID
         });
         res.status(200).json({ newLog, success: true });
+        //this should be a res.redirect once we have handlebars setup
     } catch (err) {
         res.status(500).json({ error: 'Error processing log creation' });
     }
@@ -28,6 +30,7 @@ editLog: async (req, res) => {
         }
 
         res.json({ message: 'Log updated successfully', success: true });
+        //this should be a res.redirect once we have handlebars setup
     } catch (err) {
         res.sendStatus(500).json({ error: 'Error processing log update' });
     }
@@ -38,8 +41,9 @@ deleteLog: async (req, res) => {
     try {
         const deletedCount = await Log.destroy({
             where: {
-                id: req.params.id,
+                id: req.params.logID,
             },
+
         });
 
         if (deletedCount === 0) {
@@ -47,6 +51,7 @@ deleteLog: async (req, res) => {
         }
 
         return res.status(204).json({ message: 'Log was deleted successfully', success: true });
+        //this should be a res.redirect once we have handlebars setup
     } catch (err) {
         res.sendStatus(500).json({ error: 'Error deleting Log' });
     }
