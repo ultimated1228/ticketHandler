@@ -21,5 +21,8 @@ module.exports = {
         }
         if (output.length == 0) return 0;
         return output;
+    },
+    formatTimestamp: (date) =>{
+        return `${(new Date(date).getHours() % 12 || 12)}:${new Date(date).getMinutes()} ${new Date(date).getHours() >=12 ? 'PM' : 'AM'} `;
     }
 };

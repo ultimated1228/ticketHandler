@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const ticketController = require('../controllers/ticketcontroller');
 
-//'/api/ticket'
+//POST '/api/ticket'
 router.post('/', ticketController.createTicket);
-
-//'/api/ticket/:id'
+//PUT '/api/ticket/:id'
 router.put('/:id', ticketController.editTicket);
+//DELETE '/api/ticket/:id'
 router.delete('/:id', ticketController.archiveTicket);
 
 module.exports = router;
