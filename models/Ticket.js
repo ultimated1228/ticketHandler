@@ -1,7 +1,7 @@
 // npm package and local imports
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../utils/connection')
-const Log = require('../models/Log')
+const Log = require('./Log')
 
 //class definition
 class Ticket extends Model {
@@ -86,3 +86,5 @@ Ticket.init({
     underscored: true,
     modelName: 'ticket'
 })
+
+//shouldn't a model.exports = Ticket; go here?
