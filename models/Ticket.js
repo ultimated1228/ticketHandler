@@ -33,8 +33,8 @@ Ticket.init({
         allowNull: false,
         validate: {
             //custom validator, ensures that the value of status is valid
-            statusType(statusValue) {
-                if (statusValue != 'Open' || 'Pending' || 'Resolved' || 'Claimed') {
+            statusType(status) {
+                if (status != 'Open' || 'Pending' || 'Resolved' || 'Claimed') {
                     throw new Error("status must be `Open`, `Pending`, `Resolved`, or `Claimed`");
                 }
             },
@@ -47,9 +47,9 @@ Ticket.init({
         allowNull: false,
         validate: {
             //custom validator, ensures that the value of urgency is valid
-            statusType(statusValue) {
-                if (statusValue != 'Low' || 'Medium' || 'High') {
-                    throw new Error("urgency must be `Low`, `Medium`, `High`");
+            urgencyType(urgency) {
+                if (urgency != 'Low' || 'Medium' || 'High') {
+                    throw new Error("urgency must be `Low`, `Medium`, or `High`");
                 }
             },
             notNull: true
