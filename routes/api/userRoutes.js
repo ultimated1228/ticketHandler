@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const { loginUser, logoutUser} = require('../../controllers/userController');
 
-// route is /api
+// route is /api/users
 router.route('/')
     .post(loginUser)
     .delete(logoutUser)
