@@ -1,4 +1,4 @@
-const sequelize = require('../config/connection');
+const sequelize = require('../utils/connection');
 // any new models need to be added to the curly bracket comma separated
 const { User } = require('../models');
 //any new files should be added on their own line with own variable below
