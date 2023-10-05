@@ -4,7 +4,7 @@ module.exports = {
     renderHomepage: async function (req, res) {
         try {
             const dbTickets = await Ticket.findAll({
-                include: [{ model: User, attributes:['client','tech']}]
+                include: [{ model: User, as:"client", }, {model: User, as: "tech",}]
             });
             const dbLogs = await Log.findAll({
                 include: [{ model: Ticket }]
@@ -24,7 +24,9 @@ module.exports = {
     },
     renderLogin: async function (req, res) {
         try {
-            res.render('login');
+            res.render('login', {
+                loggedIn: req.session.logged_in
+            });
             res.status(200);
         } catch (error) {
             console.error(error);
