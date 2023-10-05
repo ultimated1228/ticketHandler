@@ -1,0 +1,30 @@
+[
+{
+    "id":1,
+    "client_id":1,
+    "subject":"Help",
+    "description":"How do I login?",
+    "status":"Open",
+    "urgency":"Low",
+    "isArchived":false
+},
+{
+    "id":2,
+    "client_id":2,
+    "subject":"Bug Found",
+    "description":"I found a bug.",
+    "status":"Pending",
+    "urgency":"Medium",
+    "isArchived":false
+},
+{
+    "id":3,
+    "client_id":3,
+    "tech_id":3,
+    "subject":"App Crashed",
+    "description":"I cannot see tickets.",
+    "status":"Resolved",
+    "urgency":"High",
+    "isArchived":true
+}
+]
