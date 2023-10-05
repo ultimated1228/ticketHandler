@@ -54,6 +54,7 @@ User.init({
     hooks: {
         beforeCreate: async (user) => {
             user.password = await bcrypt.hash(user.password, 10);
+            user.email = user.email.toLowerCase();
         },
         beforeUpdate: async (user) => {
             if (user.changed('password')) {
