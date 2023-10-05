@@ -29,7 +29,7 @@ const controller = {
                 req.session.user_id = userData.id;
                 req.session.logged_in = true;
                 req.session.user_name = userData.name;
-                 res.redirect('/');
+                return res.json('ok');
             });
     
         } catch(err) {
@@ -38,7 +38,7 @@ const controller = {
     },
 
     logoutUser: (req, res) => {
-        req.session.destroy(()=> res.redirect('/login'));
+        req.session.destroy(()=> res.json('ok'));
         
     },
 
