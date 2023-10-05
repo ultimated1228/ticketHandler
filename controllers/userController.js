@@ -29,7 +29,7 @@ const controller = {
                 req.session.user_id = userData.id;
                 req.session.logged_in = true;
                 req.session.user_name = userData.name;
-                res.redirect('/');
+                 res.redirect('/');
             });
     
         } catch(err) {
