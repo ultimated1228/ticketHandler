@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 const { createTicket, editTicket, archiveTicket } = require('../../controllers/ticketController');
 
-//POST '/api/ticket'
+//POST '/api/tickets'
 router.route('/', createTicket)
     .post(createTicket);
 
 router.put('/:id')
-    //PUT '/api/ticket/:id'
+    //PUT '/api/tickets/:id'
     .put(editTicket)
-    //DELETE '/api/ticket/:id'
+    //DELETE '/api/tickets/:id'
     .delete(archiveTicket);
 
 module.exports = router;

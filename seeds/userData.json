@@ -1,58 +1,58 @@
 [
     {
         "id": "1",
-        "password": "nathan",
         "email": "nathan@cryptoforge.com",
-        "first_name": "Nathan",
-        "last_name": "Tran",
-        "role": "CFO"
+        "password": "nathan",
+        "firstName": "Nathan",
+        "lastName": "Tran",
+        "role": "tech"
     },
     {
         "id": "2",
-        "password": "matthew",
         "email": "matthew@cryptoforge.com",
-        "first_name": "Matthew",
-        "last_name": "Galvin",
-        "role": "CEO"
+        "password": "matthew",
+        "firstName": "Matthew",
+        "lastName": "Galvin",
+        "role": "tech"
     },
     {
         "id": "3",
         "password": "moe",
         "email": "moe@cryptoforge.com",
-        "first_name": "Moe",
-        "last_name": "Jawad",
-        "role": "CTO"
+        "firstName": "Moe",
+        "lastName": "Jawad",
+        "role": "tech"
     },
     {
         "id": "4",
         "password": "steve",
         "email": "steve@cryptoforge.com",
-        "first_name": "Steve",
-        "last_name": "Meyer",
-        "role": "CPO"
+        "firstName": "Steve",
+        "lastName": "Meyer",
+        "role": "tech"
     },
     {
         "id": "5",
         "password": "sofia",
         "email": "sofia@cryptoforge.com",
-        "first_name": "Sofia",
-        "last_name": "Tejada",
-        "role": "Consultant"
+        "firstName": "Sofia",
+        "lastName": "Tejada",
+        "role": "client"
     },
     {
         "id": "6",
         "password": "rachel",
         "email": "rachel@cryptoforge.com",
-        "first_name": "Rachel",
-        "last_name": "Thiim",
-        "role": "Consultant"
+        "firstName": "Rachel",
+        "lastName": "Thiim",
+        "role": "client"
     },
     {
         "id": "7",
         "password": "demo",
         "email": "demo@cryptoforge.com",
-        "first_name": "Demo",
-        "last_name": "Account",
-        "role": "demo"
+        "firstName": "Demo",
+        "lastName": "Account",
+        "role": "client"
     }
 ]
