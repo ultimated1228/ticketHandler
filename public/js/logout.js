@@ -8,8 +8,8 @@ const handleLogout = async () => {
   }
 
   try {
-    const response = await fetch('/api/users/logout', {
-      method: 'POST',
+    const response = await fetch('/api/users', {
+      method: 'DELETE',
     });
 
     if (response.ok) {
