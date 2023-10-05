@@ -1,58 +1,114 @@
 [
     {
         "id": "1",
-        "email": "nathan@cryptoforge.com",
-        "password": "nathan",
+        "password": "nathanclient",
+        "email": "nathanclient@cryptoforge.com",
+        "firstName": "Nathan",
+        "lastName": "Tran",
+        "role": "client"
+    },
+    {
+        "id": "2",
+        "password": "nathantech",
+        "email": "nathantech@cryptoforge.com",
         "firstName": "Nathan",
         "lastName": "Tran",
         "role": "tech"
     },
     {
-        "id": "2",
-        "email": "matthew@cryptoforge.com",
-        "password": "matthew",
+        "id": "3",
+        "password": "matthewclient",
+        "email": "matthewclient@cryptoforge.com",
+        "firstName": "Matthew",
+        "lastName": "Galvin",
+        "role": "client"
+    },
+    {
+        "id": "4",
+        "password": "matthewtech",
+        "email": "matthewtech@cryptoforge.com",
         "firstName": "Matthew",
         "lastName": "Galvin",
         "role": "tech"
     },
     {
-        "id": "3",
-        "password": "moe",
-        "email": "moe@cryptoforge.com",
+        "id": "5",
+        "password": "moeclient",
+        "email": "moeclient@cryptoforge.com",
+        "firstName": "Moe",
+        "lastName": "Jawad",
+        "role": "client"
+    },
+    {
+        "id": "6",
+        "password": "moetech",
+        "email": "moetech@cryptoforge.com",
         "firstName": "Moe",
         "lastName": "Jawad",
         "role": "tech"
     },
     {
-        "id": "4",
-        "password": "steve",
-        "email": "steve@cryptoforge.com",
+        "id": "7",
+        "password": "steveclient",
+        "email": "steveclient@cryptoforge.com",
+        "firstName": "Steve",
+        "lastName": "Meyer",
+        "role": "client"
+    },
+    {
+        "id": "8",
+        "password": "stevetech",
+        "email": "stevetech@cryptoforge.com",
         "firstName": "Steve",
         "lastName": "Meyer",
         "role": "tech"
     },
     {
-        "id": "5",
-        "password": "sofia",
-        "email": "sofia@cryptoforge.com",
+        "id": "9",
+        "password": "sofiaclient",
+        "email": "sofiaclient@cryptoforge.com",
         "firstName": "Sofia",
         "lastName": "Tejada",
         "role": "client"
     },
     {
-        "id": "6",
-        "password": "rachel",
-        "email": "rachel@cryptoforge.com",
+        "id": "10",
+        "password": "sofiatech",
+        "email": "sofiatech@cryptoforge.com",
+        "firstName": "Sofia",
+        "lastName": "Tejada",
+        "role": "tech"
+    },
+    {
+        "id": "11",
+        "password": "rachelclient",
+        "email": "rachelclient@cryptoforge.com",
         "firstName": "Rachel",
         "lastName": "Thiim",
         "role": "client"
     },
     {
-        "id": "7",
-        "password": "demo",
-        "email": "demo@cryptoforge.com",
+        "id": "12",
+        "password": "racheltech",
+        "email": "racheltech@cryptoforge.com",
+        "firstName": "Rachel",
+        "lastName": "Thiim",
+        "role": "tech"
+    },
+    {
+        "id": "13",
+        "password": "democlient",
+        "email": "democlient@cryptoforge.com",
         "firstName": "Demo",
         "lastName": "Account",
         "role": "client"
+    },
+    {
+        "id": "14",
+        "password": "demotech",
+        "email": "demotech@cryptoforge.com",
+        "firstName": "Demo",
+        "lastName": "Account",
+        "role": "tech"
     }
 ]
