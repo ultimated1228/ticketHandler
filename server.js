@@ -6,8 +6,6 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-
-// We might need this, not sure, its included in the boilerplate rachel built up for us
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 //Include other modules
@@ -30,11 +28,12 @@ app.use(session({
   secret: 'our super secret secret',
   resave: false,
   saveUninitialized: true,
-  
+
   // Same as above comment on line 10
-  store: new SequelizeStore({
-    db:sequelize
-  })
+  // store: new SequelizeStore({
+  //   db:sequelize
+  // })
+  
 }));
 app.use(routes)
 

@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const { User } = require('../models');
 
 const controller = {
@@ -12,25 +13,25 @@ const controller = {
                 where: { email: req.body.email },
             });
             if (!userData) {
-                res.status(404).json({ message: 'Login failed. Please try again!' });
-                return;
+                return res.status(404).json({ message: 'Login failed. Please try again!' });
             }
     
             const validPassword = await bcrypt.compare(
                 req.body.password,
                 userData.password
             );
+            console.log(validPassword)
             if (!validPassword) {
-                res.status(400).json({ message: 'Login failed. Please try again!' });
-                return;
+                return res.status(400).json({ message: 'Login failed. Please try again!' });
             }
     
             req.session.save(() => {
                 req.session.user_id = userData.id;
                 req.session.logged_in = true;
                 req.session.user_name = userData.name;
-                return res.redirect('/');
+                res.redirect('/');
             });
+    
         } catch(err) {
             res.status(500).json(err);
         }

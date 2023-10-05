@@ -1,21 +1,30 @@
-document.getElementById('logoutBtn').addEventListener('click', async () => {
-    try {
-      //api call to log out the user
-      const response = await fetch('/api/user/logout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      if (response.ok) {
-        // Redirect to the login page after successful logout
-        window.location.href = '/Login';
+const logoutNavItem = document.querySelector('#log-out');
+
+const handleLogout = async () => {
+  const confirmed = confirm('Are you sure you want to log out?');
+
+  if (!confirmed) {
+    return; 
+  }
+
+  try {
+    const response = await fetch('/api/users/logout', {
+      method: 'POST',
+    });
+
+    if (response.ok) {
+      window.location.replace('/login');
+    } else {
+      if (response.status === 401) {
+        alert('Please log in again');
       } else {
-        console.error('Failed to log out:', response.statusText);
+        alert('Failed to logout');
       }
-    } catch (error) {
-      console.error('Error during logout:', error);
     }
-  });
-  
+  } catch (error) {
+    console.error('Error during logout', error);
+    alert('An error occurred during logout');
+  }
+};
+
+logoutNavItem.addEventListener('click', handleLogout);
