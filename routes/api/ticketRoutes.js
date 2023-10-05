@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const ticketController = require('../controllers/ticketcontroller');
+const { createTicket, editTicket, archiveTicket } = require('../../controllers/ticketController');
 
-//POST '/api/ticket'
-router.post('/', ticketController.createTicket);
-//PUT '/api/ticket/:id'
-router.put('/:id', ticketController.editTicket);
-//DELETE '/api/ticket/:id'
-router.delete('/:id', ticketController.archiveTicket);
+//POST '/api/tickets'
+router.route('/', createTicket)
+    .post(createTicket);
+
+router.put('/:id')
+    //PUT '/api/tickets/:id'
+    .put(editTicket)
+    //DELETE '/api/tickets/:id'
+    .delete(archiveTicket);
 
 module.exports = router;

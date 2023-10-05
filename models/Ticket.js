@@ -2,6 +2,7 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../utils/connection')
 const Log = require('./Log')
+const User = require('./User')
 
 //class definition
 class Ticket extends Model {
@@ -27,6 +28,22 @@ ${currentString}`
 //model initialization
 Ticket.init({
     // schema definition
+    client_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: User,
+            key: 'id',
+        },
+        allowNull: false,
+    },
+    tech_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: User,
+            key: 'id',
+        },
+        allowNull: true,
+    },
     subject: {
         type: DataTypes.STRING,
         allowNull: false,
