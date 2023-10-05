@@ -13,12 +13,16 @@ const auth = require('./utils/auth');
 const routes = require('./routes');
 const helpers = require('./utils/helpers');
 const sequelize = require('./utils/connection');
+
 // Set up middleware
 const app = express();
 const port = process.env.PORT || 3001;
+
 const hbs = exphbs.create({helpers, auth});
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -28,11 +32,16 @@ app.use(session({
   secret: 'our super secret secret',
   resave: false,
   saveUninitialized: true,
+  cookie: {
+    maxAge: 5 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
 
-  // Same as above comment on line 10
-  // store: new SequelizeStore({
-  //   db:sequelize
-  // })
+  store: new SequelizeStore({
+    db:sequelize
+  })
   
 }));
 app.use(routes)
