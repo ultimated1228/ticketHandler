@@ -15,7 +15,7 @@ module.exports = {
             const logs = dbLogs.map((log) => {
                 return log.get({ plain: true })
             });
-            res.render('homepage', { tickets, logs })
+            res.render('homepage', { tickets, logs, partials: { ticketRow: 'ticketRow' } })
             res.status(200);
         } catch (error) {
             console.error(error);
