@@ -35,6 +35,13 @@ module.exports = {
     },
     renderTicket: async function (req, res) {
         try {
+
+            const dbLogs = await Log.findAll({
+            include: [{ model: Ticket }]
+        });
+        const logs = dbLogs.map((log) => {
+            return log.get({ plain: true });
+        });
             res.render('ticket', {
                 loggedIn: req.session.logged_in
             });
