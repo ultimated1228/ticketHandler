@@ -1,66 +1,23 @@
-
 <div class="text-center mb-10">
-  <!-- Top Banner -->
-<div class="bg-gray-800 text-white p-4">
-  <h1 class="text-2xl font-bold mb-2">{{ ticket.subject }}</h1>
-  <p class="text-gray-300">{{ ticket.description }}</p>
+   <!-- Top Banner -->
+   <div class="bg-gray-800 text-white p-4">
+      <h1 class="text-2xl font-bold mb-2">{{ ticket.subject }}</h1>
+      <p class="text-gray-300">{{ ticket.description }}</p>
 
-  <!-- Urgency Badge -->
-  <span class="bg-{{ urgencyColor(ticket.urgency) }} text-white px-2 py-1 rounded-full text-sm font-semibold mt-2">
-    {{ ticket.urgency }}
-  </span>
+      <!-- Urgency Badge -->
+      <span class="bg-{{ urgencyColor ticket.urgency }} text-white px-2 py-1 rounded-full text-sm font-semibold mt-2">
+         {{ ticket.urgency }}
+      </span>
 
-  <!-- opened by and created at -->
-  <p class="text-gray-300 mt-2">
-    Opened by {{ ticket.client.name }} on {{ formatDate(ticket.createdAt) }}
-  </p>
-</div>
+      <!-- opened by and created at -->
+      <p class="text-gray-300 mt-2">
+         Opened by {{ ticket.user_id }} on {{ format_date ticket.createdAt }} at {{ format_time ticket.createdAt }}
+      </p>
    </div>
+</div>
 
 <div class="grid grid-cols-2 gap-10">
-   <div class="text-center">
-{{!-- left side of ticket page goes here --}}
-left side goes here
-   </div>
-
-
-
-   <div class="p-5 bg-white dark:bg-gray-900 antialiased">
-
-      <ol class="relative border-l border-gray-200 dark:border-gray-700">
-         <li class="mb-10 ml-6">
-            <span
-               class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-               <img class=" shadow-lg" src="/images/created.png" alt="Create File Image"/>
-            </span>
-            <div
-               class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
-               <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">{{format_time ticket.logs.[0].createdAt}}</time>
-               <div class="text-sm font-normal text-gray-500 dark:text-gray-300">Ticket Created</div>
-            </div>
-            {{!-- after this there would be a for each to grab all comments after the creation --}}
-         {{#each ticket.logs}}
-         </li>
-         <li class="mb-10 ml-6">
-            <span
-               class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-               <img class=" shadow-lg" src="/images/message.png" alt="Create File Image"/>
-            </span>
-            <div
-               class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
-               <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">{{format_time this.createdAt}}</time>
-               <div class="text-sm font-normal text-gray-500 dark:text-gray-300">{{this.type}}</div>
-            </div>
-         </li>
-         {{!-- end for each here --}}
-         {{/each}}
-      </ol>
-
-   </div>
-</div>
-
-
-<!--update ticket form-->
+   <!--update ticket form-->
    <div class="p-5 bg-white dark:bg-gray-900 antialiased">
       <h2 class="text-xl font-bold mb-4">Update Ticket</h2>
       <form id="updateTicketForm">
@@ -90,20 +47,53 @@ left side goes here
                <option value="Open">Open</option>
                <option value="Claimed">Claimed</option>
                <option value="Pending">Pending</option>
-               <option value="Resolved"{{#if isClient}} disabled{{/if}}>Resolved</option>
+               {{!-- do we need a helper function for isClient? --}}
+               <option value="Resolved" {{#if isClient}} disabled{{/if}}>Resolved</option>
             </select>
          </div>
 
          <button type="button" id="saveChangesBtn" class="bg-blue-500 text-white p-2 rounded">Save Changes</button>
       </form>
    </div>
+
+   {{!-- right bottom section --}}
+   <div class="p-5 bg-white dark:bg-gray-900 antialiased">
+
+      <ol class="relative border-l border-gray-200 dark:border-gray-700">
+         <li class="mb-10 ml-6">
+            <span
+               class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+               <img class=" shadow-lg" src="/images/created.png" alt="Create File Image" />
+            </span>
+            <div
+               class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
+               <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">Created on {{ format_date
+                  ticket.logs.[0].createdAt }} at {{ format_time
+                  ticket.logs.[0].createdAt }}</time>
+               <div class="text-sm font-normal text-gray-500 dark:text-gray-300">Ticket Created</div>
+            </div>
+            {{!-- after this there would be a for each to grab all comments after the creation --}}
+            {{#each ticket.logs}}
+         </li>
+         <li class="mb-10 ml-6">
+            <span
+               class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+               <img class=" shadow-lg" src="/images/message.png" alt="Create File Image" />
+            </span>
+            <div
+               class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
+               <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">Logged at {{format_date
+                  this.createdAt}} at {{format_time
+                  this.createdAt}}</time>
+               <div class="text-sm font-normal text-gray-500 dark:text-gray-300">{{this.type}}</div>
+            </div>
+         </li>
+         {{!-- end for each here --}}
+         {{/each}}
+      </ol>
+
+   </div>
 </div>
-
-
-<!-- update ticket js file -->
-<script src="/public/js/updateTicket.js"></script>
-
-
 
 <!-- drawer init and toggle -->
 <div class="text-center">
@@ -160,3 +150,5 @@ left side goes here
 
 </div>
 
+<!-- update ticket js file -->
+<script src="/js/updateTicket.js"></script>

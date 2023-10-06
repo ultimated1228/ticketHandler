@@ -24,5 +24,10 @@ module.exports = {
     },
     formatTimestamp: (date) =>{
         return `${(new Date(date).getHours() % 12 || 12)}:${new Date(date).getMinutes()} ${new Date(date).getHours() >=12 ? 'PM' : 'AM'} `;
-    }
+    },
+    urgencyColor: (urgency) => {
+        if (urgency === 'Low') return 'green-500';
+        if (urgency === 'Medium') return 'yellow-500';
+        if (urgency === 'High') return 'red-500';
+    },
 };

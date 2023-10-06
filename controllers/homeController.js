@@ -37,7 +37,7 @@ module.exports = {
         try {
 
             const dbTickets = await Ticket.findByPk( req.params.id, {
-            include: [{ model: Log, User }]
+            include: [{ model: Log }, { model: User, as:"client" } ]
         });
             const ticket = dbTickets.get({ plain: true });
 
