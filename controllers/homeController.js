@@ -33,4 +33,15 @@ module.exports = {
             res.status(500).json(error);
         }
     },
+    renderTicket: async function (req, res) {
+        try {
+            res.render('ticket', {
+                loggedIn: req.session.logged_in
+            });
+            res.status(200);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json(error);
+        }
+    },
 }
