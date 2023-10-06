@@ -35,11 +35,11 @@ left side goes here
             </span>
             <div
                class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
-               <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">timestamp of creation</time>
+               <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">{{format_time ticket.logs.[0].createdAt}}</time>
                <div class="text-sm font-normal text-gray-500 dark:text-gray-300">Ticket Created</div>
             </div>
             {{!-- after this there would be a for each to grab all comments after the creation --}}
-         {{#each log}}
+         {{#each ticket.logs}}
          </li>
          <li class="mb-10 ml-6">
             <span
@@ -48,8 +48,8 @@ left side goes here
             </span>
             <div
                class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
-               <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">timestamp of each message</time>
-               <div class="text-sm font-normal text-gray-500 dark:text-gray-300">{{log.type}}</div>
+               <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">{{format_time this.createdAt}}</time>
+               <div class="text-sm font-normal text-gray-500 dark:text-gray-300">{{this.type}}</div>
             </div>
          </li>
          {{!-- end for each here --}}
