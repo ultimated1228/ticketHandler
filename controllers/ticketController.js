@@ -58,7 +58,7 @@ const controller = {
         urgency,
       });
 
-      res.json({ message: 'Ticket updated successfully', ticket: updatedTicket });
+      return res.status(200).json({ message: 'Ticket updated successfully', ticket: updatedTicket });
     } catch (error) {
       console.error('Error editing ticket:', error);
       res.status(500).json({ error: 'Internal Server Error' });
