@@ -22,12 +22,27 @@ module.exports = {
         if (output.length == 0) return 0;
         return output;
     },
-    formatTimestamp: (date) =>{
-        return `${(new Date(date).getHours() % 12 || 12)}:${new Date(date).getMinutes()} ${new Date(date).getHours() >=12 ? 'PM' : 'AM'} `;
+    formatTimestamp: (date) => {
+        return `${(new Date(date).getHours() % 12 || 12)}:${new Date(date).getMinutes()} ${new Date(date).getHours() >= 12 ? 'PM' : 'AM'} `;
     },
     urgencyColor: (urgency) => {
         if (urgency === 'Low') return 'green-500';
         if (urgency === 'Medium') return 'yellow-500';
         if (urgency === 'High') return 'red-500';
+    },
+
+    determineShowHide: (value) => {
+        return value === true ? "hidden" : "shown";
+    },
+
+    // Helper function to determine alignment class
+    determineAlignment: (log, currentUser) => {
+        if (log.type === 'Created' || log.type === 'Modified') {
+            return 'text-center';
+        } else if (currentUser && currentUser.id === log.userId) {
+            return 'text-right';
+        } else {
+            return 'text-left';
+        }
     },
 };

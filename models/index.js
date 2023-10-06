@@ -27,5 +27,13 @@ Log.belongsTo(Ticket, {
     foreignKey: 'ticket_id'
 });
 
+User.hasMany(Log, {
+    foreignKey: 'userId'
+})
+
+Log.belongsTo(User, {
+    foreignKey: 'userId'
+})
+
 // model exports for use in other files
 module.exports = { Log, Ticket, User }
