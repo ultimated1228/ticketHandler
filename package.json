@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "seed": "node seeds/seeds.js",
-    "watch": "nodemon server.js"
+    "watch": "nodemon server.js",
+    "build": "npx tailwindcss -i ./public/css/style.css -o ./public/tailwind/output.css --watch"
   },
   "keywords": [],
   "author": "",
