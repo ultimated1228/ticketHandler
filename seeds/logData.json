@@ -1,97 +1,71 @@
 [
+    
     {
-        "userid": "1",
-        "ticketId": "1",
-        "message": "",
-        "type": "Created",
-        "isHidden": false
-    },
-    {
-        "userid": "2",
+        "userId": "2",
         "ticketId": "1",
         "message": "working on this",
         "type": "Message",
         "isHidden": false
     },
     {
-        "userid": "1",
+        "userId": "1",
         "ticketId": "1",
         "message": "thanks!",
         "type": "Message",
         "isHidden": false
     },
     {
-        "userid": "2",
+        "userId": "2",
         "ticketId": "1",
         "message": "",
         "type": "Modified",
         "isHidden": false
     },
+   
     {
-        "userid": "3",
-        "ticketId": "2",
-        "message": "",
-        "type": "Created",
-        "isHidden": false
-    },
-    {
-        "userid": "4",
+        "userId": "4",
         "ticketId": "2",
         "message": "Starting to work on this issue. Might have a few questions for you!",
         "type": "Message",
         "isHidden": false
     },
     {
-        "userid": "3",
+        "userId": "3",
         "ticketId": "2",
         "message": "Just let me know what you need!",
         "type": "Message",
         "isHidden": false
     },
     {
-        "userid": "4",
+        "userId": "4",
         "ticketId": "2",
         "message": "Note to self: made me help on this from senior dev",
         "type": "Message",
         "isHidden": true
     },
     {
-        "userid": "4",
+        "userId": "4",
         "ticketId": "2",
         "message": "Will need to carry this to all-hands meeting tomorrow morning.  Update forthcoming afterwards",
         "type": "Message",
         "isHidden": false
     },
     {
-        "userid": "1",
-        "ticketId": "1",
-        "message": "",
-        "type": "Created",
-        "isHidden": false
-    },
-    {
-        "userid": "5",
-        "ticketId": "3",
-        "message": "",
-        "type": "Created",
-        "isHidden": false
-    },
-    {
-        "userid": "6",
+        "userId": "6",
         "ticketId": "3",
         "message": "Beginning work on this. Seems pretty straight-forward and expect to have resolution or update within 2 hours",
         "type": "Message",
         "isHidden": false
     },
     {
-        "userid": "6",
+        "userId": "6",
         "ticketId": "3",
         "message": "pushed resolution for review",
         "type": "Modified",
         "isHidden": false
     },
     {
-        "userid": "4",
+        "userId": "4",
         "ticketId": "2",
         "message": "pushed resolution for review",
         "type": "Modified",

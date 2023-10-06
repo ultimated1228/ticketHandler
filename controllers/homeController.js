@@ -36,14 +36,14 @@ module.exports = {
     renderTicket: async function (req, res) {
         try {
 
-            const dbLogs = await Log.findAll({
-            include: [{ model: Ticket }]
+            const dbTickets = await Ticket.findByPk( req.params.id, {
+            include: [{ model: Log, User }]
         });
-        const logs = dbLogs.map((log) => {
-            return log.get({ plain: true });
-        });
+            const ticket = dbTickets.get({ plain: true });
+
             res.render('ticket', {
-                loggedIn: req.session.logged_in
+                loggedIn: req.session.logged_in,
+                ticket
             });
             res.status(200);
         } catch (error) {
