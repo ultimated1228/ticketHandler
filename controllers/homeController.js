@@ -37,7 +37,14 @@ module.exports = {
         try {
 
             const dbTickets = await Ticket.findByPk( req.params.id, {
-            include: [{ model: Log }, { model: User, as:"client" } ]
+            include: [{ model: Log, include: [
+                {
+                    model: User
+                }
+            ]
+        },
+        { model: User, as:"client", }, {model: User, as: "tech",}
+            ]
         });
             const ticket = dbTickets.get({ plain: true });
 
@@ -45,6 +52,7 @@ module.exports = {
                 loggedIn: req.session.logged_in,
                 ticket
             });
+            console.log(ticket)
             res.status(200);
         } catch (error) {
             console.error(error);
