@@ -1,8 +1,8 @@
-
-
 module.exports = {
     content: [
-        "./src/**/*.{html,js}",
+        "./views/*.{handlebars,html,js}",
+        "./views/layouts/*.{handlebars,html,js}",
+        "./views/partials/*.{handlebars,html,js}",
         "./node_modules/flowbite/**/*.js"
     ],
     theme: {
