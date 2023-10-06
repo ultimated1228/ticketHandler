@@ -1,3 +1,51 @@
+
+<div class="text-center mb-10">
+   {{!-- top of ticket page goes here --}}
+   top goes here
+</div>
+
+<div class="grid grid-cols-2 gap-10">
+   <div class="text-center">
+{{!-- left side of ticket page goes here --}}
+left side goes here
+   </div>
+
+
+
+   <div class="p-5 bg-white dark:bg-gray-900 antialiased">
+
+      <ol class="relative border-l border-gray-200 dark:border-gray-700">
+         <li class="mb-10 ml-6">
+            <span
+               class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+               <img class=" shadow-lg" src="/images/created.png" alt="Create File Image"/>
+            </span>
+            <div
+               class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
+               <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">timestamp of creation</time>
+               <div class="text-sm font-normal text-gray-500 dark:text-gray-300">Created would go here at the top</div>
+            </div>
+            {{!-- after this there would be a for each to grab all comments after the creation --}}
+         </li>
+         <li class="mb-10 ml-6">
+            <span
+               class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+               <img class=" shadow-lg" src="/images/message.png" alt="Create File Image"/>
+            </span>
+            <div
+               class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
+               <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">timestamp of each message</time>
+               <div class="text-sm font-normal text-gray-500 dark:text-gray-300">this would be each message after creation run on a for each</div>
+            </div>
+         </li>
+         {{!-- end for each here --}}
+      </ol>
+
+   </div>
+</div>
+
+
+
 <!-- drawer init and toggle -->
 <div class="text-center">
    <button
@@ -27,7 +75,7 @@
       </svg>
       <span class="sr-only">Close menu</span>
    </button>
-   <form action="#" class="mb-6">
+   <form action="#" class="mb-6 ">
 
       {{!-- the log details will go here! --}}
 
