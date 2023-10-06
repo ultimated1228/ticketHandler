@@ -1,8 +1,7 @@
 
 <div class="text-center mb-10">
    {{!-- top of ticket page goes here --}}
-   top goes here
-</div>
+   </div>
 
 <div class="grid grid-cols-2 gap-10">
    <div class="text-center">
@@ -45,6 +44,50 @@ left side goes here
 
    </div>
 </div>
+
+
+<!--update ticket form-->
+   <div class="p-5 bg-white dark:bg-gray-900 antialiased">
+      <h2 class="text-xl font-bold mb-4">Update Ticket</h2>
+      <form id="updateTicketForm">
+         <!--inputs -->
+         <div class="mb-4">
+            <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+            <input type="text" id="subject" name="subject" class="mt-1 p-2 w-full" required>
+         </div>
+
+         <div class="mb-4">
+            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+            <textarea id="description" name="description" rows="4" class="mt-1 p-2 w-full" required></textarea>
+         </div>
+
+         <div class="mb-4">
+            <label for="urgency" class="block text-sm font-medium text-gray-700">Urgency</label>
+            <select id="urgency" name="urgency" class="mt-1 p-2 w-full" required>
+               <option value="Low">Low</option>
+               <option value="Medium">Medium</option>
+               <option value="High">High</option>
+            </select>
+         </div>
+
+         <div class="mb-4">
+            <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+            <select id="status" name="status" class="mt-1 p-2 w-full" required>
+               <option value="Open">Open</option>
+               <option value="Claimed">Claimed</option>
+               <option value="Pending">Pending</option>
+               <option value="Resolved"{{#if isClient}} disabled{{/if}}>Resolved</option>
+            </select>
+         </div>
+
+         <button type="button" id="saveChangesBtn" class="bg-blue-500 text-white p-2 rounded">Save Changes</button>
+      </form>
+   </div>
+</div>
+
+
+<!-- update ticket js file -->
+<script src="/public/js/updateTicket.js"></script>
 
 
 
