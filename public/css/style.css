@@ -1,4 +1,10 @@
-@tailwind base; /* Preflight will be injected here (this is basically the reset style sheet from Tailwind */
+@tailwind base; /* Preflight will be injected here (this is basically the reset style sheet from Tailwind) */
 @tailwind components;
 @tailwind utilities;
+
+.drawerSize{
+    width: 60%;
+    max-width: 800px;
+    min-width: 300px;
+}
 

@@ -1,0 +1,56 @@
+<!-- drawer init and toggle -->
+<div class="text-center">
+   <button
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      type="button" data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
+      data-drawer-placement="right" aria-controls="drawer-right-example">
+      issue log
+   </button>
+</div>
+
+<!-- drawer component -->
+<div id="drawer-right-example"
+   class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white drawerSize dark:bg-gray-800"
+   tabindex="-1" aria-labelledby="drawer-right-label">
+   <h5 id="drawer-right-label"
+      class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg
+         class="w-4 h-4 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+         viewBox="0 0 20 20">
+         <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+      </svg>Issue log</h5>
+   <button type="button" data-drawer-hide="drawer-right-example" aria-controls="drawer-right-example"
+      class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+      </svg>
+      <span class="sr-only">Close menu</span>
+   </button>
+   <form action="#" class="mb-6">
+
+      {{!-- the log details will go here! --}}
+
+      <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
+
+      <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add message</label>
+      <textarea id="message" rows="4"
+         class="block mb-5 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+         placeholder="Add message to ticket"></textarea>
+
+      <div class="flex items-center mb-2">
+         <input id="checked-checkbox" type="checkbox" value=""
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+         <label for="checked-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hide
+            Message?</label>
+      </div>
+
+      <button type="submit"
+         class="text-white bg-blue-700 hover:bg-blue-800 w-full focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 block">Submit
+         message</button>
+
+   </form>
+
+</div>
+
+<script src="/flowbite/flowbite.min.js"></script>

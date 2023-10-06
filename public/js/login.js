@@ -23,3 +23,19 @@ const loginFormHandler = async (event) => {
 document
     .querySelector('#login-form')
     .addEventListener('click', loginFormHandler);
+
+
+    
+    
+const clientDemoLink = document.getElementById('client-demo-link');
+const techDemoLink = document.getElementById('tech-demo-link');
+
+clientDemoLink.addEventListener('click', () => {
+    document.getElementById('email').value = 'democlient@cryptoforge.com';
+    document.getElementById('password').value = 'democlient';
+});
+
+techDemoLink.addEventListener('click', () => {
+    document.getElementById('email').value = 'demotech@cryptoforge.com';
+    document.getElementById('password').value = 'demotech';
+});
