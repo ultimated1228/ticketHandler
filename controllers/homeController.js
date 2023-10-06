@@ -33,4 +33,22 @@ module.exports = {
             res.status(500).json(error);
         }
     },
+    renderTicket: async function (req, res) {
+        try {
+
+            const dbLogs = await Log.findAll({
+            include: [{ model: Ticket }]
+        });
+        const logs = dbLogs.map((log) => {
+            return log.get({ plain: true });
+        });
+            res.render('ticket', {
+                loggedIn: req.session.logged_in
+            });
+            res.status(200);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json(error);
+        }
+    },
 }
