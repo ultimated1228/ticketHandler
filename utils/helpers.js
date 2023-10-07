@@ -37,7 +37,7 @@ module.exports = {
 
     // Helper function to determine alignment class
     determineAlignment: (log, currentUser) => {
-        if (log.type === 'Created' || log.type === 'Modified') {
+        if (log.type === 'Modified') {
             return 'text-center';
         } else if (currentUser && currentUser.id === log.userId) {
             return 'text-right';
