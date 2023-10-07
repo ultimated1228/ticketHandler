@@ -1,71 +1,55 @@
-const logOutButton = document.querySelector("#log-out");
-const submitTicket = document.querySelector("#submit-ticket");
-const claimTicket = document.querySelectorAll(".claim-ticket-button");
-
-logOutButton.addEventListener("click", async function () {
+const logoutHandler = async (event) => {
+  event.preventDefault();
   try {
     const res = await fetch("/api/users", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
-    // if res.ok is truthy, redirect user to the login page
     if (res.ok) {
       location.replace("/login");
-      return res.status(200).json({ message: "Successfully Logged Out" });
-    } else {
-      // otherwise, the api call failed to close the session and a new error is thrown
-      throw new Error("Unable to logout");
+      console.log("\nsuccessfully logged out\n");
     }
   } catch (error) {
-    console.error(error);
+    console.error("\nlogout failed\n", error);
   }
-});
+};
 
-submitTicket.addEventListener("submit", async function (event) {
+const formSubmitHandler = async (event) => {
   event.preventDefault();
   try {
-    const subject = document.querySelector("#subject").value;
-    const description = document.querySelector("#message").value;
-    const status = "Open";
-    const urgency = document.querySelector("#urgency").value;
+    const req = {
+      subject: await document.querySelector("#subject").value.trim(),
+      description: await document.querySelector("#message").value.trim(),
+      status: "Open",
+      urgency: await document.querySelector("#urgency").value,
+    };
 
     const res = await fetch("/api/tickets", {
       method: "POST",
-      headers: { "Content-Type": "application.json" },
-      body: {
-        subject: subject,
-        description: description,
-        status: status,
-        urgency: urgency,
-      },
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(req),
     });
-    if (res.status === 201) {
-      const id = res.body.ticket.id;
-      location.replace(`/ticket/${id}`);
-      return res.status(201);
-    } else {
-      throw new Error("Unable to create ticket");
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
+    if (res.ok) {
+      // Here the ticket id needs to be parsed out of the response so we can redirect the client to their newly created ticket
 
-claimTicket.addEventListener("click", async function () {
-  try {
-    const id = claimTicket.ticketId.value;
-    const res = await fetch(`/api/ticket/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application.json" },
-      body: {
-        status: "Claimed",
-      },
-    });
-    if (res.status === 200) {
-      location.replace(`/ticket/${id}`);
-      return res.status(200).json({ message: "Ticket Claimed by Tech" });
+      // location.replace(`/ticket/${id}`);
+      console.log("\nsuccessfully created ticket\n");
     }
+  } catch (error) {
+    console.error("\nfailed to create ticket\n", error);
+  }
+};
+
+const ticketClaimHandler = async (event) => {
+  event.preventDefault();
+  try {
   } catch (error) {
     console.error(error);
   }
-});
+};
+
+document.querySelector("#log-out").addEventListener("click", logoutHandler);
+document.querySelector("#submit-ticket").addEventListener("submit", formSubmitHandler);
+
+// commented out for now so it doesnt crash
+// document.querySelectorAll(".claim-ticket").addEventListener("click", ticketClaimHandler);

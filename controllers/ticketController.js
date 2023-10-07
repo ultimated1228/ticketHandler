@@ -1,29 +1,26 @@
-const router = require('express').Router();
-const { Ticket } = require('../models')
+const router = require("express").Router();
+const { Ticket } = require("../models");
 
 const controller = {
   // Controller for creating a new ticket
   createTicket: async (req, res) => {
     try {
       const { subject, description, status, urgency } = req.body;
-
-      const userId = req.session.userId;
+      const { user_id } = req.session;
 
       const newTicket = await Ticket.create({
-        subject,
-        description,
-        status,
-        urgency,
-        client: userId,
+        client_id: user_id,
+        subject: subject,
+        description: description,
+        status: status,
+        urgency: urgency,
       });
 
-      // Log the ticket creation
-      await newTicket.logChange(userId, 'Ticket created');
-
-      res.status(201).json({ message: 'Ticket created successfully', ticket: newTicket });
+      // the initial log occurs in the afterCreate hook on the ticket model
+      res.status(201).json({message:"response has reached the client", ticket:newTicket});
     } catch (error) {
-      console.error('Error creating ticket:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      console.error("Error creating ticket:", error);
+      res.status(500).json({ error: "Internal Server Error" });
     }
   },
 
@@ -36,7 +33,7 @@ const controller = {
       const updatedTicket = await Ticket.findByPk(id);
 
       if (!updatedTicket) {
-        return res.status(404).json({ error: 'Ticket not found' });
+        return res.status(404).json({ error: "Ticket not found" });
       }
       const userId = req.session.userId;
 
@@ -58,10 +55,13 @@ const controller = {
         urgency,
       });
 
-      return res.status(200).json({ message: 'Ticket updated successfully', ticket: updatedTicket });
+      return res.status(200).json({
+        message: "Ticket updated successfully",
+        ticket: updatedTicket,
+      });
     } catch (error) {
-      console.error('Error editing ticket:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      console.error("Error editing ticket:", error);
+      res.status(500).json({ error: "Internal Server Error" });
     }
   },
 
@@ -73,20 +73,22 @@ const controller = {
       const archivedTicket = await Ticket.findByPk(id);
 
       if (!archivedTicket) {
-        return res.status(404).json({ error: 'Ticket not found' });
+        return res.status(404).json({ error: "Ticket not found" });
       }
 
       // Archive the ticket
       archivedTicket.isArchived = true;
       await archivedTicket.save();
 
-      res.json({ message: 'Ticket archived successfully', ticket: archivedTicket });
+      res.json({
+        message: "Ticket archived successfully",
+        ticket: archivedTicket,
+      });
     } catch (error) {
-      console.error('Error archiving ticket:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      console.error("Error archiving ticket:", error);
+      res.status(500).json({ error: "Internal Server Error" });
     }
   },
+};
 
-}
-
-module.exports = controller
+module.exports = controller;
