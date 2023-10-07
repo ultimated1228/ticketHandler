@@ -1,7 +1,4 @@
-
-
-<h1
-    class="text-center mb-4  text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
+<h1 class="text-center mb-4  text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
     Your Tickets</h1>
 <p class="text-center mb-6 text-lg font-normal text-gray-900 lg:text-xl sm:px-16 xl:px-48">You may filter tickets
     by Status, or view ALL</p>
@@ -128,6 +125,28 @@
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Claim</a>
                 </td>
             </tr>
+            {{#each tickets as |ticket|}}
+            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ticket.status}}
+                </th>
+                <td class="px-6 py-4">
+                    {{ticket.urgency}}
+                </td>
+                <td class="px-6 py-4">
+                    {{ticket.client.firstName}}
+                </td>
+                <td class="px-6 py-4">
+                    {{ticket.tech.firstName}}
+                </td>
+                <td class="px-6 py-4">
+                    {{format_date ticket.createdAt}}
+                </td>
+                <td class="px-6 py-4 text-right">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Claim</a>
+                </td>
+            </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>
@@ -179,4 +198,3 @@
     </form>
 
 </div>
-

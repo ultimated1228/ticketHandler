@@ -9,7 +9,7 @@ router.route('/')
 router.route('/login')
     .get(renderLogin);
 
-router.route('/ticket/:id')
+router.route('/ticket')
     .get(withAuth, renderTicket);
 
 module.exports = router;
