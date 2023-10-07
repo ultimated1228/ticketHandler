@@ -1,5 +1,6 @@
 {{!-- empty div to watch for dynamic classes and out to output.css --}}
 <div classes="bg-green-500 bg-yellow-500 bg-red-500 text-right text-center text-left"></div>
+{{!-- end empty div --}}
 
 <div class="text-center mb-10">
    <!-- Top Banner -->
@@ -9,11 +10,11 @@
       <p class="text-gray-300">{{ ticket.description }}</p>
 
       <!-- Urgency Badge -->
-      <span class="bg-{{ urgencyColor ticket.urgency }} text-white px-2 py-1 rounded-full text-sm font-semibold mt-2">
+      <div class="mt-5"><span class="bg-{{ urgencyColor ticket.urgency }} text-white px-2 py-1 rounded-full text-sm font-semibold">
          {{ ticket.urgency }}
-      </span>
+      </span></div>
       <!-- opened by and created at -->
-      <p class="text-gray-300 mt-2">
+      <p class="text-gray-300 mt-5">
          Opened by {{ ticket.client.firstName }} {{ ticket.client.lastName }} on {{ format_date ticket.createdAt }} at {{ format_time ticket.createdAt }}
       </p>
    </div>
@@ -26,18 +27,18 @@
       <form id="updateTicketForm">
          <!--inputs -->
          <div class="mb-4">
-            <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
-            <input type="text" id="subject" name="subject" class="mt-1 p-2 w-full" required>
+            <label for="subject" class="block text-sm font-mediumtext-gray-900 dark:text-white">Subject</label>
+            <input type="text" id="subject" name="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
          </div>
 
          <div class="mb-4">
             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-            <textarea id="description" name="description" rows="4" class="mt-1 p-2 w-full" required></textarea>
+            <textarea id="description" name="description" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
          </div>
 
          <div class="mb-4">
             <label for="urgency" class="block text-sm font-medium text-gray-700">Urgency</label>
-            <select id="urgency" name="urgency" class="mt-1 p-2 w-full" required>
+            <select id="urgency" name="urgency" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                <option value="Low">Low</option>
                <option value="Medium">Medium</option>
                <option value="High">High</option>
@@ -46,7 +47,7 @@
 
          <div class="mb-4">
             <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-            <select id="status" name="status" class="mt-1 p-2 w-full" required>
+            <select id="status" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                <option value="Open">Open</option>
                <option value="Claimed">Claimed</option>
                <option value="Pending">Pending</option>
@@ -173,7 +174,7 @@
                         this.createdAt}}</time>
                   </div>
                   <div class=" mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">
-                     Written by: {{this.user.firstName}}
+                     Written by: {{this.user.firstName}}  {{this.user.lastName}}
                   </div>
                </div>
             </li>

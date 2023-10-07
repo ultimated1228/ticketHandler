@@ -1,74 +1,303 @@
 [
-    
     {
-        "userId": "2",
-        "ticketId": "1",
-        "message": "working on this",
+        "userId": 1,
+        "ticketId": 1,
+        "message": "let me know if you need more information",
         "type": "Message",
         "isHidden": false
     },
     {
-        "userId": "1",
-        "ticketId": "1",
+        "userId": 1,
+        "ticketId": 1,
         "message": "thanks!",
         "type": "Message",
         "isHidden": false
     },
     {
-        "userId": "2",
-        "ticketId": "1",
+        "userId": 1,
+        "ticketId": 1,
         "message": "",
         "type": "Modified",
         "isHidden": false
     },
-   
     {
-        "userId": "4",
-        "ticketId": "2",
-        "message": "Starting to work on this issue. Might have a few questions for you!",
+        "userId": 1,
+        "ticketId": 1,
+        "message": "Just checking for an update on this one",
         "type": "Message",
         "isHidden": false
     },
     {
-        "userId": "3",
-        "ticketId": "2",
+        "userId": 5,
+        "ticketId": 2,
         "message": "Just let me know what you need!",
         "type": "Message",
         "isHidden": false
     },
     {
-        "userId": "4",
-        "ticketId": "2",
-        "message": "Note to self: made me help on this from senior dev",
+        "userId": 2,
+        "ticketId": 2,
+        "message": "Note to self: may need help on this from senior dev",
         "type": "Message",
         "isHidden": true
     },
     {
-        "userId": "4",
-        "ticketId": "2",
+        "userId": 12,
+        "ticketId": 3,
         "message": "Will need to carry this to all-hands meeting tomorrow morning.  Update forthcoming afterwards",
         "type": "Message",
         "isHidden": false
     },
     {
-        "userId": "6",
-        "ticketId": "3",
+        "userId": 2,
+        "ticketId": 2,
         "message": "Beginning work on this. Seems pretty straight-forward and expect to have resolution or update within 2 hours",
         "type": "Message",
         "isHidden": false
     },
     {
-        "userId": "6",
-        "ticketId": "3",
+        "userId": 3,
+        "ticketId": 12,
         "message": "pushed resolution for review",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 3,
+        "ticketId": 3,
+        "message": "thanks!",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 2,
+        "ticketId": 2,
+        "message": "Slow Internet Connection - Investigating the issue.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 2,
+        "ticketId": 2,
+        "message": "",
         "type": "Modified",
         "isHidden": false
     },
     {
-        "userId": "4",
-        "ticketId": "2",
-        "message": "pushed resolution for review",
+        "userId": 5,
+        "ticketId": 2,
+        "message": "Software Update Needed - Beginning the software update process.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 5,
+        "ticketId": 2,
+        "message": "Email Server Down - Investigating the email server outage.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 5,
+        "ticketId": 2,
+        "message": "Printer Not Working.",
+        "type": "Message",
+        "isHidden": true
+    },
+    {
+        "userId": 12,
+        "ticketId": 3,
+        "message": "Network Connectivity Issue - Checking for network problems.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 3,
+        "ticketId": 3,
+        "message": "Password Reset Request - Assisting with password reset.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 3,
+        "ticketId": 3,
+        "message": "Software Installation - Starting the software installation process.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 3,
+        "ticketId": 3,
+        "message": "",
         "type": "Modified",
+        "isHidden": false
+    },
+    {
+        "userId": 1,
+        "ticketId": 1,
+        "message": "Data Backup Request - Initiating data backup.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 1,
+        "ticketId": 1,
+        "message": "Access Permission Issue - can't get folder access permission.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 2,
+        "ticketId": 2,
+        "message": "Application Error - Troubleshooting the application error.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 13,
+        "ticketId": 4,
+        "message": "Network Configuration Issue - Optimizing network configuration.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId":14,
+        "ticketId": 4,
+        "message": "Software License Key Request - Providing the license key.",
+        "type": "Message",
+        "isHidden": true
+    },
+    {
+        "userId": 13,
+        "ticketId": 4,
+        "message": "Computer Freezing - Diagnosing the computer freezing issue.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 13,
+        "ticketId": 4,
+        "message": "Email Configuration Issue - Resolving email configuration problem.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 14,
+        "ticketId": 4,
+        "message": "Security Concern - Investigating the security concern.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 14,
+        "ticketId": 4,
+        "message": "Server Maintenance - Scheduling server maintenance.",
+        "type": "Message",
+        "isHidden": true
+    },
+    {
+        "userId": 13,
+        "ticketId": 4,
+        "message": "",
+        "type": "Modified",
+        "isHidden": false
+    },
+    {
+        "userId": 3,
+        "ticketId": 3,
+        "message": "VPN Connection Issue - Troubleshooting VPN connection.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 12,
+        "ticketId": 3,
+        "message": "Data Recovery Request - Initiating data recovery process.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 3,
+        "ticketId": 3,
+        "message": "Application Crash - Investigating application crashes.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 3,
+        "ticketId": 3,
+        "message": "Hardware Failure - Diagnosing hardware failure issue.",
+        "type": "Message",
+        "isHidden": true
+    },
+    {
+        "userId": 5,
+        "ticketId": 2,
+        "message": "Network Outage - Investigating network outage.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 5,
+        "ticketId": 2,
+        "message": "",
+        "type": "Modified",
+        "isHidden": false
+    },
+    {
+        "userId": 1,
+        "ticketId": 1,
+        "message": "Email Delay",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 13,
+        "ticketId": 4,
+        "message": "Printer Paper Jam - Clearing the printer paper jam.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 14,
+        "ticketId": 4,
+        "message": "Software Compatibility Issue - Investigating software compatibility issue.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 12,
+        "ticketId": 3,
+        "message": "Data Security Audit - Conducting a data security audit.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 2,
+        "ticketId": 2,
+        "message": "Printer paper jam issue resolved after clearing the paper jam and performing a test print.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId": 14,
+        "ticketId": 4,
+        "message": "Software compatibility issue resolved by providing guidance on software configuration.",
+        "type": "Message",
+        "isHidden": false
+    },
+    {
+        "userId":14,
+        "ticketId": 4,
+        "message": "",
+        "type": "Modified",
+        "isHidden": false
+    },
+    {
+        "userId": 3,
+        "ticketId": 3,
+        "message": "Checking on status",
+        "type": "Message",
         "isHidden": false
     }
 ]
