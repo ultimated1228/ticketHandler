@@ -1,201 +1,263 @@
-<h1 class="text-center mb-4  text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
-    Your Tickets</h1>
-<p class="text-center mb-6 text-lg font-normal text-gray-900 lg:text-xl sm:px-16 xl:px-48">You may filter tickets
-    by Status, or view ALL</p>
+<script defer src="/js/home.js"></script>
 
-{{!-- buttons --}}
+<h1
+  class="text-center mb-4 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl"
+>
+  Your Tickets</h1>
+<p
+  class="text-center mb-6 text-lg font-normal text-gray-900 lg:text-xl sm:px-16 xl:px-48"
+>You may filter tickets by Status, or view ALL</p>
+
+{{! buttons }}
 <div class="flex justify-center items-center rounded-md shadow-sm" role="group">
-    <button type="button"
-        class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-        All
-    </button>
-    <button type="button"
-        class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-        Open
-    </button>
-    <button type="button"
-        class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-        Pending
-    </button>
-    <button type="button"
-        class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-        Resolved
-    </button>
-    <button type="button"
-        class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-        Claimed
-    </button>
+  <button
+    type="button"
+    class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+  >
+    All
+  </button>
+  <button
+    type="button"
+    class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+  >
+    Open
+  </button>
+  <button
+    type="button"
+    class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+  >
+    Pending
+  </button>
+  <button
+    type="button"
+    class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+  >
+    Resolved
+  </button>
+  <button
+    type="button"
+    class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+  >
+    Claimed
+  </button>
 </div>
-
-
-
 
 <!-- drawer init and toggle -->
 <div class="text-center">
-    <button
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-        type="button" data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
-        data-drawer-placement="right" aria-controls="drawer-right-example">
-        Create an Issue
-    </button>
+  <button
+    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+    type="button"
+    data-drawer-target="drawer-right-example"
+    data-drawer-show="drawer-right-example"
+    data-drawer-placement="right"
+    aria-controls="drawer-right-example"
+  >
+    Create an Issue
+  </button>
 </div>
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    Status
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Urgency
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    client
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Technician
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Created
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    <span class="sr-only">Edit</span>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Pending
-                </th>
-                <td class="px-6 py-4">
-                    Low
-                </td>
-                <td class="px-6 py-4">
-                    test
-                </td>
-                <td class="px-6 py-4">
-                    test
-                </td>
-                <td class="px-6 py-4">
-                    test
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Open
-                </th>
-                <td class="px-6 py-4">
-                    Medium
-                </td>
-                <td class="px-6 py-4">
-                    test
-                </td>
-                <td class="px-6 py-4">
-                    test
-                </td>
-                <td class="px-6 py-4">
-                    test
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Claimed
-                </th>
-                <td class="px-6 py-4">
-                    Low
-                </td>
-                <td class="px-6 py-4">
-                    test
-                </td>
-                <td class="px-6 py-4">
-                    test
-                </td>
-                <td class="px-6 py-4">
-                    test
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Claim</a>
-                </td>
-            </tr>
-            {{#each tickets as |ticket|}}
-            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ticket.status}}
-                </th>
-                <td class="px-6 py-4">
-                    {{ticket.urgency}}
-                </td>
-                <td class="px-6 py-4">
-                    {{ticket.client.firstName}}
-                </td>
-                <td class="px-6 py-4">
-                    {{ticket.tech.firstName}}
-                </td>
-                <td class="px-6 py-4">
-                    {{format_date ticket.createdAt}}
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Claim</a>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Status
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Urgency
+        </th>
+        <th scope="col" class="px-6 py-3">
+          client
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Technician
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Created
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Edit</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+      >
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          Pending
+        </th>
+        <td class="px-6 py-4">
+          Low
+        </td>
+        <td class="px-6 py-4">
+          test
+        </td>
+        <td class="px-6 py-4">
+          test
+        </td>
+        <td class="px-6 py-4">
+          test
+        </td>
+        <td class="px-6 py-4 text-right">
+          <a
+            href="#"
+            class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >Edit</a>
+        </td>
+      </tr>
+      <tr
+        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+      >
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          Open
+        </th>
+        <td class="px-6 py-4">
+          Medium
+        </td>
+        <td class="px-6 py-4">
+          test
+        </td>
+        <td class="px-6 py-4">
+          test
+        </td>
+        <td class="px-6 py-4">
+          test
+        </td>
+        <td class="px-6 py-4 text-right">
+          <a
+            href="#"
+            class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >Edit</a>
+        </td>
+      </tr>
+      <tr
+        class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600"
+      >
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          Claimed
+        </th>
+        <td class="px-6 py-4">
+          Low
+        </td>
+        <td class="px-6 py-4">
+          test
+        </td>
+        <td class="px-6 py-4">
+          test
+        </td>
+        <td class="px-6 py-4">
+          test
+        </td>
+        <td class="px-6 py-4 text-right">
+          <a
+            href="#"
+            class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >Claim</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <!-- drawer component -->
-<div id="drawer-right-example"
-    class="drawerSize fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white dark:bg-gray-800"
-    tabindex="-1" aria-labelledby="drawer-right-label">
-    <h5 id="drawer-right-label"
-        class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg
-            class="w-4 h-4 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-            viewBox="0 0 20 20">
-            <path
-                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-        </svg>Create an Issue</h5>
-    <button type="button" data-drawer-hide="drawer-right-example" aria-controls="drawer-right-example"
-        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
-        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-        </svg>
-        <span class="sr-only">Close menu</span>
-    </button>
-    <form action="#" class="mb-6">
+<div
+  id="drawer-right-example"
+  class="drawerSize fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white dark:bg-gray-800"
+  tabindex="-1"
+  aria-labelledby="drawer-right-label"
+>
+  <h5
+    id="drawer-right-label"
+    class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"
+  ><svg
+      class="w-4 h-4 mr-2.5"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+    >
+      <path
+        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+      />
+    </svg>Create an Issue</h5>
+  <button
+    type="button"
+    data-drawer-hide="drawer-right-example"
+    aria-controls="drawer-right-example"
+    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
+  >
+    <svg
+      class="w-3 h-3"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 14 14"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+      />
+    </svg>
+    <span class="sr-only">Close menu</span>
+  </button>
+  <form id="submit-ticket" action="#" class="mb-6">
+    <div class="mb-6">
+      <label
+        for="subject"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Subject</label>
+      <input
+        type="subject"
+        id="subject"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Summarize Your Issue"
+        required
+      />
+    </div>
 
-        <div class="mb-6">
-            <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject</label>
-            <input type="subject" id="subject"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Summarize Your Issue" required>
-        </div>
+    <label
+      for="message"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+    >Description</label>
+    <textarea
+      id="message"
+      rows="4"
+      class="block mb-5 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="Provide Details of Your Issue Here"
+    ></textarea>
 
-        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-        <textarea id="message" rows="4"
-            class="block mb-5 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Provide Details of Your Issue Here"></textarea>
+    <label
+      for="urgency"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+    >Urgency</label>
+    <select
+      id="urgency"
+      class="bg-gray-50 mb-10 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    >
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+    </select>
 
-
-        <label for="urgency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Urgency</label>
-        <select id="urgency"
-            class="bg-gray-50 mb-10 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option>Low</option>
-            <option>Medium</option>
-            <option>High</option>
-        </select>
-
-        <button type="submit"
-            class="text-white bg-blue-700 hover:bg-blue-800 w-full focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 block">Send
-            message</button>
-    </form>
+    <button
+      type="submit"
+      class="text-white bg-blue-700 hover:bg-blue-800 w-full focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 block"
+    >Send message</button>
+  </form>
 
 </div>

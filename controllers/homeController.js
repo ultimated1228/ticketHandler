@@ -15,7 +15,7 @@ module.exports = {
             const logs = dbLogs.map((log) => {
                 return log.get({ plain: true })
             });
-            res.render('homepage', { tickets, logs })
+            res.render('homepage', { tickets, logs, user:req.session.user_name })
             res.status(200);
         } catch (error) {
             console.error(error);
@@ -50,6 +50,7 @@ module.exports = {
 
             res.render('ticket', {
                 loggedIn: req.session.logged_in,
+                user: req.session.user_name,
                 ticket
             });
             console.log(ticket)
