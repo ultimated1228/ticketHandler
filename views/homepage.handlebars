@@ -67,28 +67,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Pending
-                </th>
-                <td class="px-6 py-4">
-                    Low
-                </td>
-                <td class="px-6 py-4">
-                    test
-                </td>
-                <td class="px-6 py-4">
-                    test
-                </td>
-                <td class="px-6 py-4">
-                    test
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
             {{#each tickets as |ticket|}}
-            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <tr data-href="/ticket/{{ticket.id}}" class="clickable-row bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{ticket.status}}
                 </th>
@@ -104,9 +84,11 @@
                 <td class="px-6 py-4">
                     {{format_date ticket.createdAt}}
                 </td>
+                {{!-- {{if }} user is tech and ticket is unclaimed, show claim button --}}
                 <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Claim</a>
+                    <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Claim</button>
                 </td>
+                {{!-- {{/if}} --}}
             </tr>
             {{/each}}
         </tbody>

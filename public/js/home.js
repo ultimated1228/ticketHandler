@@ -52,3 +52,14 @@ document.querySelector("#submit-ticket").addEventListener("submit", formSubmitHa
 
 // commented out for now so it doesnt crash
 // document.querySelectorAll(".claim-ticket").addEventListener("click", ticketClaimHandler);
+document.addEventListener('DOMContentLoaded', function() {
+  const rows = document.querySelectorAll('.clickable-row');
+  rows.forEach(row => {
+      row.addEventListener('click', function() {
+          const href = row.getAttribute('data-href');
+          if (href) {
+              window.location.href = href;
+          }
+      });
+  });
+});
