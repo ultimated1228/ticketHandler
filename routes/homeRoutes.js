@@ -12,4 +12,7 @@ router.route('/login')
 router.route('/ticket')
     .get(withAuth, renderTicket);
 
+    router.route('/:status')
+    .get(withAuth, renderHomepage);
+    
 module.exports = router;
