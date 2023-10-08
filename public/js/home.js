@@ -32,6 +32,8 @@ const formSubmitHandler = async (event) => {
     });
     if (res.ok) {
       console.log("\nsuccessfully created ticket\n");
+      const data = await res.json()
+      document.location.replace(`/ticket/${data.id}`)
     }
   } catch (error) {
     console.error("\nfailed to create ticket\n", error);
