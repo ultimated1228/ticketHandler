@@ -26,6 +26,7 @@
       <h2 class="text-xl font-bold mb-4">Update Ticket</h2>
       <form id="updateTicketForm">
          <!--inputs -->
+         
          <div class="mb-4">
             <label for="subject" class="block text-sm font-mediumtext-gray-900 dark:text-white">Subject</label>
             <input type="text" id="subject" name="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
@@ -33,7 +34,7 @@
 
          <div class="mb-4">
             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-            <textarea id="description" name="description" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+            <textarea id="description" type="text" name="description" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
          </div>
 
          <div class="mb-4">
@@ -79,6 +80,7 @@
                <div class="text-sm font-normal text-gray-500 dark:text-gray-300">Ticket Created</div>
             </div>
             {{!-- after this there would be a for each to grab all comments after the creation --}}
+            {{#if ticket.logs.length}}
             {{#each ticket.logs}}
          </li>
          <li class="mb-10 ml-6">
@@ -96,8 +98,11 @@
                <div class="text-sm font-normal text-gray-500 dark:text-gray-300">{{this.type}}</div>
             </div>
          </li>
-         {{!-- end for each here --}}
+         
          {{/each}}
+         {{else}}
+         No Logs Available
+         {{/if}}
       </ol>
 
    </div>
@@ -155,6 +160,7 @@
                   </div>
                </div>
                {{!-- after this there would be a for each to grab all comments after the creation --}}
+               {{#if ticket.logs.length}}
                {{#each ticket.logs}}
             </li>
             <li class="mb-10 ml-6">
@@ -180,7 +186,10 @@
             </li>
             {{!-- end for each here --}}
             {{/each}}
+            {{else}}
+            No Logs Available
          </ol>
+            {{/if}}
 
          {{!-- end of log details --}}
 

@@ -1,3 +1,5 @@
+
+
 const logoutHandler = async (event) => {
   event.preventDefault();
   try {
@@ -30,10 +32,11 @@ const formSubmitHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(req),
     });
+    
     if (res.ok) {
-      console.log("\nsuccessfully created ticket\n");
-      const data = await res.json()
-      document.location.replace(`/ticket/${data.id}`)
+      const data = await res.json(); // Parse the response JSON
+      console.log({ message: "\nsuccessfully created ticket\n", ticket: data.ticket });
+      document.location.replace(`/ticket/${data.ticket.id}`); // Access the new ticket's ID
     }
   } catch (error) {
     console.error("\nfailed to create ticket\n", error);
