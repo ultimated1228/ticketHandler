@@ -17,7 +17,6 @@ const logoutHandler = async (event) => {
 const formSubmitHandler = async (event) => {
   event.preventDefault();
   try {
-
     // the body content to be sent to the ticket controller upon making the POST call
     const req = {
       subject: await document.querySelector("#subject").value.trim(),
@@ -39,7 +38,7 @@ const formSubmitHandler = async (event) => {
       const createLog = await fetch(`/api/log/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body:{        }
+        body: {},
       });
       location.replace(`/ticket/${id}`);
       console.log("\nsuccessfully created ticket\n");
@@ -58,9 +57,10 @@ const ticketClaimHandler = async (event) => {
     console.error(error);
   }
 };
-
 document.querySelector("#log-out").addEventListener("click", logoutHandler);
-document.querySelector("#submit-ticket").addEventListener("submit", formSubmitHandler);
+document
+  .querySelector("#submit-ticket")
+  .addEventListener("submit", formSubmitHandler);
 
 // commented out for now so it doesnt crash
 // document.querySelectorAll(".claim-ticket").addEventListener("click", ticketClaimHandler);

@@ -1,30 +1,243 @@
 [
-{
-    "id":1,
-    "client_id":1,
-    "subject":"Help",
-    "description":"How do I login?",
-    "status":"Open",
-    "urgency":"Low",
-    "isArchived":false
-},
-{
-    "id":2,
-    "client_id":2,
-    "subject":"Bug Found",
-    "description":"I found a bug.",
-    "status":"Pending",
-    "urgency":"Medium",
-    "isArchived":false
-},
-{
-    "id":3,
-    "client_id":3,
-    "tech_id":3,
-    "subject":"App Crashed",
-    "description":"I cannot see tickets.",
-    "status":"Resolved",
-    "urgency":"High",
-    "isArchived":true
-}
+    {
+        "id": 1,
+        "client_id": 1,
+        "subject": "Slow Internet Connection",
+        "description": "The internet connection is very slow in our office, making it difficult to work.",
+        "status": "Open",
+        "urgency": "Medium",
+        "isArchived": false
+    },
+    {
+        "id": 10,
+        "client_id": 3,
+        "subject": "Software Update Needed",
+        "description": "Our software is outdated and needs an urgent update for security reasons.",
+        "status": "Open",
+        "urgency": "High",
+        "isArchived": false
+    },
+    {
+        "id":15,
+        "client_id": 5,
+        "subject": "Email Server Down",
+        "description": "Our email server is currently down, and we can't send or receive emails.",
+        "status": "Open",
+        "urgency": "High",
+        "isArchived": false
+    },
+    {
+        "id": 14,
+        "client_id": 7,
+        "subject": "Printer Not Working",
+        "description": "The office printer is not functioning, and we have important documents to print.",
+        "status": "Open",
+        "urgency": "Low",
+        "isArchived": false
+    },
+    {
+        "id": 5,
+        "client_id": 9,
+        "subject": "Network Connectivity Issue",
+        "description": "We are experiencing intermittent network connectivity problems affecting our work.",
+        "status": "Open",
+        "urgency": "Medium",
+        "isArchived": false
+    },
+    {
+        "id": 6,
+        "client_id": 11,
+        "subject": "Password Reset Request",
+        "description": "I forgot my password and need it to access my work account.",
+        "status": "Open",
+        "urgency": "Low",
+        "isArchived": false
+    },
+    {
+        "id": 7,
+        "client_id": 13,
+        "subject": "Software Installation",
+        "description": "I need assistance installing software on my computer for a new project.",
+        "status": "Open",
+        "urgency": "Medium",
+        "isArchived": false
+    },
+    {
+        "id": 8,
+        "client_id": 1,
+        "subject": "Data Backup Request",
+        "description": "I would like to request a backup of my important files as a precaution.",
+        "status": "Open",
+        "urgency": "Low",
+        "isArchived": false
+    },
+    {
+        "id": 9,
+        "client_id": 3,
+        "subject": "Access Permission Issue",
+        "description": "I don't have access to a specific folder required for my project. Please grant permission.",
+        "status": "Open",
+        "urgency": "High",
+        "isArchived": false
+    },
+    {
+        "id": 2,
+        "client_id": 5,
+        "tech_id": 2,
+        "subject": "Application Error",
+        "description": "An error message keeps popping up when I use our company's application.",
+        "status": "Pending",
+        "urgency": "Medium",
+        "isArchived": false
+    },
+    {
+        "id": 11,
+        "client_id": 7,
+        "tech_id": 4,
+        "subject": "Network Configuration Issue",
+        "description": "Our network configuration needs adjustment for better performance.",
+        "status": "Pending",
+        "urgency": "High",
+        "isArchived": false
+    },
+    {
+        "id": 12,
+        "client_id": 9,
+        "tech_id": 6,
+        "subject": "Software License Key Request",
+        "description": "I need a license key for a software application we recently purchased.",
+        "status": "Resolved",
+        "urgency": "Low",
+        "isArchived": true
+    },
+    {
+        "id": 13,
+        "client_id": 13,
+        "tech_id": 8,
+        "subject": "Computer Freezing",
+        "description": "My computer keeps freezing randomly, making it difficult to work.",
+        "status": "Resolved",
+        "urgency": "Medium",
+        "isArchived": true
+    },
+    {
+        "id": 4,
+        "client_id": 13,
+        "tech_id": 14,
+        "subject": "Email Configuration Issue",
+        "description": "I'm having trouble configuring my email account on a new device.",
+        "status": "Resolved",
+        "urgency": "High",
+        "isArchived": true
+    },
+    {
+        "id": 3,
+        "client_id": 3,
+        "tech_id": 12,
+        "subject": "Security Concern",
+        "description": "I suspect a security breach. Need assistance to investigate and resolve it.",
+        "status": "Claimed",
+        "urgency": "Medium",
+        "isArchived": false
+    },
+    {
+        "id": 16,
+        "client_id": 3,
+        "tech_id": 2,
+        "subject": "Server Maintenance",
+        "description": "Our server requires scheduled maintenance to improve performance.",
+        "status": "Claimed",
+        "urgency": "High",
+        "isArchived": false
+    },
+    {
+        "id": 17,
+        "client_id": 5,
+        "tech_id": 4,
+        "subject": "VPN Connection Issue",
+        "description": "I'm unable to establish a VPN connection to access company resources.",
+        "status": "Claimed",
+        "urgency": "Low",
+        "isArchived": false
+    },
+    {
+        "id": 18,
+        "client_id": 7,
+        "tech_id": 6,
+        "subject": "Data Recovery Request",
+        "description": "We accidentally deleted crucial data and need it recovered urgently.",
+        "status": "Claimed",
+        "urgency": "Medium",
+        "isArchived": false
+    },
+    {
+        "id": 19,
+        "client_id": 9,
+        "tech_id": 8,
+        "subject": "Application Crash",
+        "description": "One of our critical applications keeps crashing. It's affecting productivity.",
+        "status": "Claimed",
+        "urgency": "High",
+        "isArchived": false
+    },
+    {
+        "id": 20,
+        "client_id": 11,
+        "tech_id": 10,
+        "subject": "Hardware Failure",
+        "description": "My computer hardware has failed completely. Need replacement or repair.",
+        "status": "Claimed",
+        "urgency": "Medium",
+        "isArchived": false
+    },
+    {
+        "id": 21,
+        "client_id": 13,
+        "tech_id": 12,
+        "subject": "Network Outage",
+        "description": "The entire network is down, and we can't access any resources.",
+        "status": "Claimed",
+        "urgency": "High",
+        "isArchived": false
+    },
+    {
+        "id": 22,
+        "client_id": 1,
+        "tech_id": 2,
+        "subject": "Email Delay",
+        "description": "Emails are delayed, causing communication issues. Need a quick resolution.",
+        "status": "Claimed",
+        "urgency": "Low",
+        "isArchived": false
+    },
+    {
+        "id": 23,
+        "client_id": 3,
+        "tech_id": 4,
+        "subject": "Printer Paper Jam",
+        "description": "The office printer is jammed. We can't print any documents.",
+        "status": "Claimed",
+        "urgency": "Medium",
+        "isArchived": false
+    },
+    {
+        "id": 24,
+        "client_id": 5,
+        "tech_id": 6,
+        "subject": "Software Compatibility Issue",
+        "description": "Our new software is not compatible with our existing systems. Need assistance.",
+        "status": "Claimed",
+        "urgency": "High",
+        "isArchived": false
+    },
+    {
+        "id": 25,
+        "client_id": 7,
+        "tech_id": 8,
+        "subject": "Data Security Audit",
+        "description": "We need to conduct a data security audit to ensure compliance and security.",
+        "status": "Claimed",
+        "urgency": "Medium",
+        "isArchived": false
+    }
 ]

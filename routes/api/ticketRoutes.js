@@ -6,7 +6,7 @@ const { createTicket, editTicket, archiveTicket } = require('../../controllers/t
 router.route('/', createTicket)
     .post(createTicket);
 
-router.put('/:id')
+router.route('/:id')
     //PUT '/api/tickets/:id'
     .put(editTicket)
     //DELETE '/api/tickets/:id'

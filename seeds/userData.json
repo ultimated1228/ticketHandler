@@ -100,7 +100,7 @@
         "password": "democlient",
         "email": "democlient@cryptoforge.com",
         "firstName": "Demo",
-        "lastName": "Account",
+        "lastName": "Client",
         "role": "client"
     },
     {
@@ -108,7 +108,7 @@
         "password": "demotech",
         "email": "demotech@cryptoforge.com",
         "firstName": "Demo",
-        "lastName": "Account",
+        "lastName": "Tech",
         "role": "tech"
     }
 ]
