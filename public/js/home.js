@@ -31,16 +31,6 @@ const formSubmitHandler = async (event) => {
       body: JSON.stringify(req),
     });
     if (res.ok) {
-      // Here the ticket id needs to be parsed out of the response so we can redirect the client to their newly created ticket
-      const id = 1; // TEMPORARY, MUST REMOVE LATER
-      //this functionality should probably be handled within the afterCreate hook in the ticket mode instead of here
-      // I couldn't get it to work in eithr so right now its in both
-      const createLog = await fetch(`/api/log/${id}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: {},
-      });
-      location.replace(`/ticket/${id}`);
       console.log("\nsuccessfully created ticket\n");
     }
   } catch (error) {
@@ -58,9 +48,7 @@ const ticketClaimHandler = async (event) => {
   }
 };
 document.querySelector("#log-out").addEventListener("click", logoutHandler);
-document
-  .querySelector("#submit-ticket")
-  .addEventListener("submit", formSubmitHandler);
+document.querySelector("#submit-ticket").addEventListener("submit", formSubmitHandler);
 
 // commented out for now so it doesnt crash
 // document.querySelectorAll(".claim-ticket").addEventListener("click", ticketClaimHandler);

@@ -1,29 +1,32 @@
 // npm package and local imports
-const { Model, DataTypes } = require('sequelize')
-const sequelize = require('../utils/connection')
-const Log = require('./Log')
-const User = require('./User')
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../utils/connection");
+const Log = require("./Log");
+const User = require("./User");
 
 //class definition
 class Ticket extends Model {
-    // Instance methods
-    async logChange(userId, oldData) {
-        const findDiff = await findDiff(this, oldData);
-        if (findDiff.length == 0) { return }
-        else {
-            const log = new Log()
-            log.type = 'Modified';
-            log.message = `${findDiff.length} changes were made on ${new Date} by ${userId}.
+  // Instance methods
+  async logChange(userId, oldData) {
+    const findDiff = await findDiff(this, oldData);
+    if (findDiff.length == 0) {
+      return;
+    } else {
+      const log = new Log();
+      log.type = "Modified";
+      log.message = `${
+        findDiff.length
+      } changes were made on ${new Date()} by ${userId}.
 ${findDiff.reduce((fullString, currentString) => {
-                return `${fullString}
-${currentString}`
-            }, "")}`;
-            log.userId = userId;
-            log.ticketId = this.id;
-            log.save();
-        };
-    };
-};
+  return `${fullString}
+${currentString}`;
+}, "")}`;
+      log.userId = userId;
+      log.ticketId = this.id;
+      log.save();
+    }
+  }
+}
 
 //model initialization
 Ticket.init(
@@ -96,22 +99,26 @@ Ticket.init(
   {
     hooks: {
       //after a Ticket instance is created, make a Created Log that is assoicated with it
-      afterCreate: (newTicket) => {
-        
-        // does this need to be a fetch call to the logController?
-        
-        // const log = new Log();
+      afterCreate: async (newTicket) => {
+        try {
+          const req = {
+            message: `Ticket number ${newTicket.id} created`,
+            type: "Created",
+          };
 
-        const log = {};
-        
-        log.type = "Created";
-        log.message = `Ticket number ${newTicket.id} created`;
-        log.userId = newTicket.client_id;
-        log.ticketId = newTicket.id;
-
-        // log.save();
-        
-        return newTicket;
+          const res = await fetch(`/api/logs/${newTicket.id}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(req),
+          });
+          if (res.ok) {
+            console.log("\nsuccesfully created log for new ticket\n");
+            location.replace(`/ticket/${newTicket.id}`);
+          }
+        } catch (error) {
+          console.log('\nfailed to create log for new ticket\n')
+          console.error(error);
+        }
       },
       afterUpdate: (updatedTicket) => {
         if (updatedTicket.status == "Resolved") {

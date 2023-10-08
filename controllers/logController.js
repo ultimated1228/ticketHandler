@@ -2,12 +2,12 @@ const router = require('express').Router();
 const { Log } = require('../models');
 const controller = {
     
-    createLog: async (req, res) => {
+createLog: async (req, res) => {
     //create new Log
     try {
         const newLog = await Log.create({
             ...req.body,
-            user_id: req.session.user_id,
+            userId: req.session.user_id,
             ticketId: req.params.ticketID
         });
         res.status(200).json({ newLog, success: true });

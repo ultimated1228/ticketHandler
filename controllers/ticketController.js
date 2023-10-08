@@ -35,7 +35,7 @@ const controller = {
       if (!updatedTicket) {
         return res.status(404).json({ error: "Ticket not found" });
       }
-      const userId = req.session.userId;
+      const userId = req.session.user_id;
 
       // Log the changes before updating
       const oldData = {

@@ -26,14 +26,14 @@ module.exports = {
   getDashboardData: async (req, res) => {
     try {
       const { status } = req.params;
-      const { userId, role } = req.session;
+      const { user_id, role } = req.session;
 
       let tickets;
 
       if (role === "client") {
         tickets = await Ticket.findAll({
           where: {
-            clientId: userId,
+            clientId: user_id,
             isArchived: false,
           },
           include: [{ model: User, as: "client" }],
@@ -41,7 +41,7 @@ module.exports = {
       } else if (role === "tech") {
         const techOptions = {
           where: {
-            techId: userId,
+            techId: user_id,
             isArchived: false,
           },
           include: [
