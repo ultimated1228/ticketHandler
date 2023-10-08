@@ -8,7 +8,7 @@ const controller = {
         const newLog = await Log.create({
             ...req.body,
             user_id: req.session.user_id,
-            ticket_id: req.params.ticketID
+            ticketId: req.params.ticketID
         });
         res.status(200).json({ newLog, success: true });
         //this should be a res.redirect once we have handlebars setup

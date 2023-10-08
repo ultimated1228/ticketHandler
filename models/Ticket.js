@@ -26,90 +26,105 @@ ${currentString}`
 };
 
 //model initialization
-Ticket.init({
-    // schema definition
+Ticket.init(
+  {
+    // client_ id refers to the user who created the ticket by referencing the primary key value of that User instance
     client_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: User,
-            key: 'id',
-        },
-        allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: User,
+        key: "id",
+      },
+      allowNull: false,
     },
+    // tech_ id refers to the user who claimed the ticket by referencing the primary key value of that User instance
     tech_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: User,
-            key: 'id',
-        },
-        allowNull: true,
+      type: DataTypes.INTEGER,
+      references: {
+        model: User,
+        key: "id",
+      },
+      allowNull: true,
     },
     subject: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            notNull: true
-        },
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: true,
+      },
     },
     description: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            notNull: true
-        },
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: true,
+      },
     },
     status: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            isIn: {
-                args: [['Open', 'Pending', 'Resolved', 'Claimed']],
-                msg: 'status must be `Open`, `Pending`, `Resolved`, or `Claimed`',
-            },
-            notNull: true
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isIn: {
+          args: [["Open", "Pending", "Resolved", "Claimed"]],
+          msg: "status must be `Open`, `Pending`, `Resolved`, or `Claimed`",
         },
-        defaultValue: 'Open'
+        notNull: true,
+      },
+      defaultValue: "Open",
     },
     urgency: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            isIn: {
-                args: [['Low', 'Medium', 'High']],
-                msg: 'urgency must be `Low`, `Medium`, or `High`',
-            },
-            notNull: true
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isIn: {
+          args: [["Low", "Medium", "High"]],
+          msg: "urgency must be `Low`, `Medium`, or `High`",
         },
-        defaultValue: 'Low'
+        notNull: true,
+      },
+      defaultValue: "Low",
     },
     isArchived: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        validate: {
-            notNull: true
-        },
-        defaultValue: false
-    }
-}, {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      validate: {
+        notNull: true,
+      },
+      defaultValue: false,
+    },
+  },
+  {
     hooks: {
-        afterCreate: (newTicket) => {
-            Log.type = 'Created';
-            Log.message = `Ticket number ${newTicket.id}`;
-            Log.userId = newTicket.client;
-            Log.ticketId = newTicket.id;
-            return newTicket;
-        },
-        afterUpdate: (updatedTicket) => {
-            if (updatedTicket.status == 'Resolved') {
-                updatedTicket.isArchived = true;
-            }
-            return updatedTicket;
+      //after a Ticket instance is created, make a Created Log that is assoicated with it
+      afterCreate: (newTicket) => {
+        
+        // does this need to be a fetch call to the logController?
+        
+        // const log = new Log();
+
+        const log = {};
+        
+        log.type = "Created";
+        log.message = `Ticket number ${newTicket.id} created`;
+        log.userId = newTicket.client_id;
+        log.ticketId = newTicket.id;
+
+        // log.save();
+        
+        return newTicket;
+      },
+      afterUpdate: (updatedTicket) => {
+        if (updatedTicket.status == "Resolved") {
+          updatedTicket.isArchived = true;
         }
+        return updatedTicket;
+      },
     },
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'ticket'
-})
+    modelName: "ticket",
+  }
+);
 
 module.exports = Ticket;

@@ -17,7 +17,7 @@ const controller = {
       });
 
       // the initial log occurs in the afterCreate hook on the ticket model
-      res.status(201).json({message:"response has reached the client", ticket:newTicket});
+      res.status(201).json({message:"New ticket created", ticket:newTicket});
     } catch (error) {
       console.error("Error creating ticket:", error);
       res.status(500).json({ error: "Internal Server Error" });
