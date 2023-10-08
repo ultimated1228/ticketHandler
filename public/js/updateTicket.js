@@ -1,6 +1,7 @@
 document.getElementById('saveChangesBtn').addEventListener('click', async () => {
     try {
-      const ticketId = currentTicketId;
+      const urlParts = window.location.href.split('/');
+      const ticketId = parseInt(urlParts[urlParts.length - 1]);
   
       const formData = {
         subject: document.getElementById('subject').value,
