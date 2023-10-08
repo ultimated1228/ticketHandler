@@ -28,7 +28,8 @@ const controller = {
             req.session.save(() => {
                 req.session.user_id = userData.id;
                 req.session.logged_in = true;
-                req.session.user_name = userData.name;
+                req.session.user_name = userData.firstName;
+                req.session.role = userData.role
                 return res.json('ok');
             });
     

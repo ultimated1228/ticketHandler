@@ -1,70 +1,54 @@
-const { Ticket, User } = require ('../../models');
-
-const serializeData = (tickets) => {
-    return tickets.map((ticket) => ({
-      id: ticket.id,
-      subject: ticket.subject,
-      description: ticket.description,
-      status: ticket.status,
-      urgency: ticket.urgency,
-      client: {
-        id: ticket.client.id,
-        firstName: ticket.client.firstName,
-        lastName: ticket.client.lastName,
-      },
-      tech: (ticket.tech) ? {
-        id: ticket.tech.id,
-        firstName: ticket.tech.firstName,
-        lastName: ticket.tech.lastName,
-      } : null,
-    }));
-  };
-
-const getDashboardData = async (req, res) => {
-    try {
-      const { status } = req.params;
-      const { userId, role } = req.session;
-  
-      let tickets;
-  
-      if (role === 'client') {
-        tickets = await Ticket.findAll({
-          where: {
-            clientId: userId,
-            isArchived: false,
-          },
-          include: [{ model: User, as: 'client' }],
-        });
-      } else if (role === 'tech') {
-        const techOptions = {
-          where: {
-            techId: userId,
-            isArchived: false,
-          },
-          include: [{ model: User, as: 'client' }, { model: User, as: 'tech' }],
-        };
-  
-        if (status) {
-          techOptions.where.status = status;
-        }
-  
-        tickets = await Ticket.findAll(techOptions);
-      }
-  
-      const serializedData = serializeData(tickets); 
-      
-      res.render('dashboard', {
-        layout: 'main',
-        title: 'Dashboard',
-        loggedIn: true,
-        userType: role,
-        data: serializedData,
-      });
-    } catch (error) {
-      console.error('Error in dashboard controller:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+const logoutHandler = async (event) => {
+  event.preventDefault();
+  try {
+    const res = await fetch("/api/users", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
+    if (res.ok) {
+      location.replace("/login");
+      console.log("\nsuccessfully logged out\n");
     }
-  };
-  
-  
-  module.exports = { getDashboardData };
+  } catch (error) {
+    console.error("\nlogout failed\n", error);
+  }
+};
+
+const formSubmitHandler = async (event) => {
+  event.preventDefault();
+  try {
+    // the body content to be sent to the ticket controller upon making the POST call
+    const req = {
+      subject: await document.querySelector("#subject").value.trim(),
+      description: await document.querySelector("#message").value.trim(),
+      status: "Open",
+      urgency: await document.querySelector("#urgency").value,
+    };
+    // the post call to create a new ticket, routed to the createTicket function in the ticketController
+    const res = await fetch("/api/tickets", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(req),
+    });
+    if (res.ok) {
+      console.log("\nsuccessfully created ticket\n");
+    }
+  } catch (error) {
+    console.error("\nfailed to create ticket\n", error);
+  }
+};
+
+// this will update the tech_id of a ticket when that ticket's claim button is clicked
+// tech_id will be a reference to the primary key of the user who clicked it
+const ticketClaimHandler = async (event) => {
+  event.preventDefault();
+  try {
+  } catch (error) {
+    console.error(error);
+  }
+};
+document.querySelector("#log-out").addEventListener("click", logoutHandler);
+document.querySelector("#submit-ticket").addEventListener("submit", formSubmitHandler);
+
+// commented out for now so it doesnt crash
+// document.querySelectorAll(".claim-ticket").addEventListener("click", ticketClaimHandler);

@@ -1,39 +1,40 @@
 // npm package and local imports
-const Log = require('./Log');
-const Ticket = require('./Ticket');
-const User = require('./User');
-
+const Log = require("./Log");
+const Ticket = require("./Ticket");
+const User = require("./User");
 
 //-----------------------Model Relations-----------------------
 
-// Ticket belongsTo User
+// Ticket will have a foreign key client_id that looks at the primary key of the user instance who created it
 Ticket.belongsTo(User, {
-    foreignKey: 'client_id',
-    as: 'client'
+  foreignKey: "client_id",
+  as: "client",
 });
-// Ticket belongsTo User, prior to being claimed by a tech will be NULL
+// Ticket will have a foreign key tech_id that looks at the primary key of the user instance who claimed it
 Ticket.belongsTo(User, {
-    foreignKey: 'tech_id',
-    as: 'tech'
+  foreignKey: "tech_id",
+  as: "tech",
 });
 
-//Ticket has many logs (I don't see an ID being created within the ticket model, so I'm not sure this is referencing the right foreign key)
-Ticket.hasMany(Log, {
-    foreignKey: 'ticket_id'
-});
-
-//log belongs to ticket (however, once again, I don't see a ticket_id within the ticket model, so I'm not sure if this is the correct reference)
+// Log will have a foreign key ticketId that looks at the primary key of the ticket instance that created it
 Log.belongsTo(Ticket, {
-    foreignKey: 'ticket_id'
+  foreignKey: "ticketId",
+});
+
+Log.belongsTo(User, {
+  foreignKey: "userId",
+});
+
+//----------------------- Havers -----------------------
+// Basically, a 'haver' wont have a foreign key for a relation unless they both have each other
+
+Ticket.hasMany(Log, {
+  foreignKey: "ticketId",
 });
 
 User.hasMany(Log, {
-    foreignKey: 'userId'
-})
-
-Log.belongsTo(User, {
-    foreignKey: 'userId'
-})
+  foreignKey: "userId",
+});
 
 // model exports for use in other files
-module.exports = { Log, Ticket, User }
+module.exports = { Log, Ticket, User };
