@@ -14,5 +14,5 @@ router.route('/ticket/:id')
 
 router.route('/:status')
     .get(withAuth, renderHomepage);
-    
+
 module.exports = router;
