@@ -1,12 +1,7 @@
 const logoutNavItem = document.querySelector('#log-out');
 
 const handleLogout = async () => {
-  const confirmed = confirm('Are you sure you want to log out?');
-
-  if (!confirmed) {
-    return; 
-  }
-
+  
   try {
     const response = await fetch('/api/users', {
       method: 'DELETE',
