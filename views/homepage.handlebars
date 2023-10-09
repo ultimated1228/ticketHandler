@@ -35,13 +35,15 @@
 <!-- drawer init and toggle -->
 <div class="text-center">
     <button
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        class="my-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
         type="button" data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
         data-drawer-placement="right" aria-controls="drawer-right-example">
         Create an Issue
     </button>
 </div>
-
+{{!-- end drawer init --}}
+{{!-- dashboard location --}}
+{{{getDashboardData}}}
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -76,10 +78,10 @@
                     {{ticket.urgency}}
                 </td>
                 <td class="px-6 py-4">
-                    {{ticket.client.firstName}}
+                    {{ticket.client.firstName}} {{ticket.client.lastName}}
                 </td>
                 <td class="px-6 py-4">
-                    {{ticket.tech.firstName}}
+                    {{ticket.tech.firstName}} {{ticket.tech.lastName}}
                 </td>
                 <td class="px-6 py-4">
                     {{format_date ticket.createdAt}}
@@ -125,7 +127,7 @@
         <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
         <textarea id="message" rows="4"
             class="block mb-5 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Provide Details of Your Issue Here"></textarea>
+            placeholder="Provide Details of Your Issue Here" required></textarea>
 
         <label for="urgency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Urgency</label>
         <select id="urgency"
@@ -141,3 +143,5 @@
     </form>
 
 </div>
+
+<script src="/js/dashboard.js"></script>

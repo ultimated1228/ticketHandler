@@ -6,10 +6,13 @@ createLog: async (req, res) => {
     //create new Log
     try {
         const newLog = await Log.create({
-            ...req.body,
+            message: req.body.message,
+            isHidden: req.body.isHidden,
             userId: req.session.user_id,
-            ticketId: req.params.ticketID
+            ticketId: req.body.ticketId
         });
+
+        console.log()
         res.status(200).json({ newLog, success: true });
         //this should be a res.redirect once we have handlebars setup
     } catch (err) {
