@@ -1,5 +1,3 @@
-
-
 const logoutHandler = async (event) => {
   event.preventDefault();
   try {
@@ -52,8 +50,6 @@ const ticketClaimHandler = async (event) => {
     console.error(error);
   }
 };
-document.querySelector("#log-out").addEventListener("click", logoutHandler);
-document.querySelector("#submit-ticket").addEventListener("submit", formSubmitHandler);
 
 // commented out for now so it doesnt crash
 // document.querySelectorAll(".claim-ticket").addEventListener("click", ticketClaimHandler);
@@ -61,26 +57,26 @@ document.querySelector("#submit-ticket").addEventListener("submit", formSubmitHa
 document.addEventListener('DOMContentLoaded', function() {
   const rows = document.querySelectorAll('.clickable-row');
   rows.forEach(row => {
-      row.addEventListener('click', function(event) {
-          if (!event.target.classList.contains('claim-button')) {
-              const href = row.getAttribute('data-href');
-              if (href) {
-                  window.location.href = href;
-              }
-          }
-      });
+    row.addEventListener('click', function(event) {
+      if (!event.target.classList.contains('claim-button')) {
+        const href = row.getAttribute('data-href');
+        if (href) {
+          window.location.href = href;
+        }
+      }
+    });
   });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
   const buttons = document.querySelectorAll('.filter-button');
   const rows = document.querySelectorAll('tbody tr');
-
+  
   buttons.forEach((button) => {
     button.addEventListener('click', function (event) {
       event.preventDefault(); // Prevent the default anchor tag behavior
       const statusToFilter = button.getAttribute('href').substring(1); // Remove the leading '/'
-
+      
       // Show/hide rows based on the selected status
       rows.forEach((row) => {
         const rowStatus = row.getAttribute('data-status');
@@ -91,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
     });
-
+    
     // Handle the "All" button separately
     if (button.getAttribute('href') === '/') {
       button.addEventListener('click', function (event) {
@@ -103,3 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+document.querySelector("#log-out").addEventListener("click", logoutHandler);
+document.querySelector("#submit-ticket").addEventListener("submit", formSubmitHandler);
