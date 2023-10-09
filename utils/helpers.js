@@ -35,14 +35,17 @@ module.exports = {
     },
 
     determineShowHide: (value) => {
-        return value === true ? "hidden" : "shown";
+        return value === true ? "hide" : "show";
     },
 
     // Helper function to determine alignment class
     determineAlignment: (log, currentUser) => {
-        if (log.type === 'Modified') {
+        console.log(currentUser);
+        console.log(log)
+
+        if (log.type === 'Modified' || log.type === 'Created') {
             return 'text-center';
-        } else if (currentUser && currentUser.id === log.userId) {
+        } else if (currentUser === log.userId) {
             return 'text-right';
         } else {
             return 'text-left';

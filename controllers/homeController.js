@@ -53,6 +53,7 @@ module.exports = {
             res.render('ticket', {
                 loggedIn: req.session.logged_in,
                 user: req.session.user_name,
+                currentUserId: req.session.user_id,
                 ticket
             });
             console.log(ticket)
