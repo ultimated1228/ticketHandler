@@ -39,14 +39,14 @@ const controller = {
       const userId = req.session.user_id;
 
       // Log the changes before updating
-      const oldData = {
+            const oldData = {
         subject: updatedTicket.subject,
         description: updatedTicket.description,
         status: updatedTicket.status,
         urgency: updatedTicket.urgency,
       };
 
-      await updatedTicket.logChange(userId, oldData);
+      // await updatedTicket.logChange(userId, oldData);
 
       // Update the ticket
       await updatedTicket.update({
