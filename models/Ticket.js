@@ -9,18 +9,18 @@ const { findDiff } = require("../utils/helpers");
 //class definition
 class Ticket extends Model {
   // Instance methods
-  async logChange(userId, oldData) {
-    const differences = await findDiff(this, oldData);
-    if (differences.length == 0) {
-      return;
-    } else {
-      const log = new Log();
+async logChange(userId, oldData) {
+const differences = await findDiff(this, oldData);
+if (differences.length == 0) {
+return;
+} else {
+const log = new Log();
       log.type = "Modified";
       log.message = `${
         differences.length
       } changes were made on ${new Date()} by ${userId}.
 ${differences.reduce((fullString, currentString) => {
-  return `${fullString}
+return `${fullString}
 ${currentString}`;
 }, "")}`;
       log.userId = userId;

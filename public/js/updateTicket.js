@@ -1,15 +1,15 @@
-document.getElementById('saveChangesBtn').addEventListener('click', async () => {
+document.getElementById("updateTicketForm").addEventListener("submit", async () => {
     try {
       const urlParts = window.location.href.split('/');
       const ticketId = parseInt(urlParts[urlParts.length - 1]);
-  
+
       const formData = {
         subject: document.getElementById('subject').value,
         description: document.getElementById('description').value,
         urgency: document.getElementById('urgency').value,
         status: document.getElementById('status').value,
       };
-  
+
       //call to update the ticket
       const response = await fetch(`/api/tickets/${ticketId}`, {
         method: 'PUT',
@@ -18,7 +18,7 @@ document.getElementById('saveChangesBtn').addEventListener('click', async () => 
         },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
         console.log('Ticket updated successfully');
       } else {
@@ -28,4 +28,3 @@ document.getElementById('saveChangesBtn').addEventListener('click', async () => 
       console.error('Error updating ticket:', error);
     }
   });
-  
