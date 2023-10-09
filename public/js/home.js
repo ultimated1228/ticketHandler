@@ -52,14 +52,49 @@ document.querySelector("#submit-ticket").addEventListener("submit", formSubmitHa
 
 // commented out for now so it doesnt crash
 // document.querySelectorAll(".claim-ticket").addEventListener("click", ticketClaimHandler);
+
 document.addEventListener('DOMContentLoaded', function() {
   const rows = document.querySelectorAll('.clickable-row');
   rows.forEach(row => {
-      row.addEventListener('click', function() {
-          const href = row.getAttribute('data-href');
-          if (href) {
-              window.location.href = href;
+      row.addEventListener('click', function(event) {
+          if (!event.target.classList.contains('claim-button')) {
+              const href = row.getAttribute('data-href');
+              if (href) {
+                  window.location.href = href;
+              }
           }
       });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const buttons = document.querySelectorAll('.filter-button');
+  const rows = document.querySelectorAll('tbody tr');
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent the default anchor tag behavior
+      const statusToFilter = button.getAttribute('href').substring(1); // Remove the leading '/'
+
+      // Show/hide rows based on the selected status
+      rows.forEach((row) => {
+        const rowStatus = row.getAttribute('data-status');
+        if (statusToFilter === 'all' || rowStatus === statusToFilter) {
+          row.style.display = 'table-row';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+
+    // Handle the "All" button separately
+    if (button.getAttribute('href') === '/') {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        rows.forEach((row) => {
+          row.style.display = 'table-row';
+        });
+      });
+    }
   });
 });
