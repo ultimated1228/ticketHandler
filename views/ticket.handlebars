@@ -4,18 +4,24 @@
 
 <div class="text-center mb-10">
    <!-- Top Banner -->
-   
+
    <div class="bg-gray-800 text-white p-4">
       <h1 class="text-2xl font-bold mb-2">{{ ticket.subject }}</h1>
       <p class="text-gray-300">{{ ticket.description }}</p>
 
       <!-- Urgency Badge -->
-      <div class="mt-5"><span class="bg-{{ urgencyColor ticket.urgency }} text-white px-2 py-1 rounded-full text-sm font-semibold">
-         {{ ticket.urgency }}
-      </span></div>
+      <div class="mt-5"><span
+            class="bg-{{ urgencyColor ticket.urgency }} text-white px-2 py-1 rounded-full text-sm font-semibold">
+            {{ ticket.urgency }}
+         </span></div>
+      {{!-- status type --}}
+      <div class="mt-5"><span class=" text-white px-2 py-1 rounded-full text-sm font-semibold">
+            Status is: {{ ticket.status }}
+         </span></div>
       <!-- opened by and created at -->
       <p class="text-gray-300 mt-5">
-         Opened by {{ ticket.client.firstName }} {{ ticket.client.lastName }} on {{ format_date ticket.createdAt }} at {{ format_time ticket.createdAt }}
+         Opened by {{ ticket.client.firstName }} {{ ticket.client.lastName }} on {{ format_date ticket.createdAt }} at
+         {{ format_time ticket.createdAt }}
       </p>
    </div>
 </div>
@@ -26,20 +32,26 @@
       <h2 class="text-xl font-bold mb-4">Update Ticket</h2>
       <form id="updateTicketForm">
          <!--inputs -->
-         
+
          <div class="mb-4">
             <label for="subject" class="block text-sm font-mediumtext-gray-900 dark:text-white">Subject</label>
-            <input type="text" id="subject" name="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+            <input type="text" id="subject" name="subject"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+               required>
          </div>
 
          <div class="mb-4">
             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-            <textarea id="description" type="text" name="description" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+            <textarea id="description" type="text" name="description" rows="4"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+               required></textarea>
          </div>
 
          <div class="mb-4">
             <label for="urgency" class="block text-sm font-medium text-gray-700">Urgency</label>
-            <select id="urgency" name="urgency" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+            <select id="urgency" name="urgency"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+               required>
                <option value="Low">Low</option>
                <option value="Medium">Medium</option>
                <option value="High">High</option>
@@ -48,7 +60,9 @@
 
          <div class="mb-4">
             <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-            <select id="status" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+            <select id="status" name="status"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+               required>
                <option value="Open">Open</option>
                <option value="Claimed">Claimed</option>
                <option value="Pending">Pending</option>
@@ -98,7 +112,7 @@
                <div class="text-sm font-normal text-gray-500 dark:text-gray-300">{{this.type}}</div>
             </div>
          </li>
-         
+
          {{/each}}
          {{else}}
          No Logs Available
@@ -129,92 +143,101 @@
       </svg>
       <span class="sr-only">Close menu</span>
    </button>
+
+
+   {{!-- the log details will go here! --}}
+
+   <div class="p-5 bg-white dark:bg-gray-900 antialiased">
+
+      <ol class="relative border-l border-gray-200 dark:border-gray-700">
+         <li class="mb-10 ml-6">
+            <span
+               class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+               <img class=" shadow-lg" src="/images/created.png" alt="Create File Image" />
+            </span>
+            <div class="text-sm font-normal text-gray-500 dark:text-gray-300">Ticket Created</div>
+            <div
+               class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600">
+
+               <div class="text-base font-normal text-center text-gray-500 dark:text-gray-300"><strong>Initial
+                     Issue:</strong> {{ticket.description}}</div>
+
+            </div>
+            <div class="flex justify-between px-3">
+               <div>
+                  <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">Created on {{
+                     format_date
+                     ticket.logs.[0].createdAt }} at {{ format_time
+                     ticket.logs.[0].createdAt }}</time>
+               </div>
+               <div class=" mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">
+                  Created by: {{ ticket.client.firstName }} {{ ticket.client.lastName }}
+               </div>
+            </div>
+         </li>
+         {{!-- after this there would be a for each to grab all comments after the creation --}}
+         {{#if ticket.logs.length}}
+         {{#each ticket.logs}}
+
+         <li class="mb-10 ml-6">
+            <span
+               class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+               <img class=" shadow-lg" src="/images/message.png" alt="Create File Image" />
+            </span>
+            <div class="text-sm font-normal text-gray-500 dark:text-gray-300">{{this.type}}</div>
+            <div
+               class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600">
+               <div
+                  class="text-base {{ determineAlignment this ticket.client.id }} font-normal text-gray-500 dark:text-gray-300">
+                  {{this.message}}</div>
+            </div>
+            <div class="flex justify-between px-3">
+               <div>
+                  <time class=" mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">Logged at {{format_date
+                     this.createdAt}} at {{format_time
+                     this.createdAt}}</time>
+               </div>
+               <div class=" mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">
+                  Written by: {{this.user.firstName}} {{this.user.lastName}}
+               </div>
+            </div>
+         </li>
+         {{!-- end for each here --}}
+         {{/each}}
+         {{else}}
+         No Logs Available
+      </ol>
+      {{/if}}
+   </div>
+   {{!-- end of log details --}}
    <form action="#" class="mb-6 ">
 
-      {{!-- the log details will go here! --}}
-
-      <div class="p-5 bg-white dark:bg-gray-900 antialiased">
-
-         <ol class="relative border-l border-gray-200 dark:border-gray-700">
-            <li class="mb-10 ml-6">
-               <span
-                  class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-                  <img class=" shadow-lg" src="/images/created.png" alt="Create File Image" />
-               </span>
-               <div class="text-sm font-normal text-gray-500 dark:text-gray-300">Ticket Created</div>
-               <div
-                  class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600">
-
-                  <div class="text-base font-normal text-center text-gray-500 dark:text-gray-300"><strong>Initial Issue:</strong> {{ticket.description}}</div>
-
-               </div>
-               <div class="flex justify-between px-3">
-                  <div>
-                     <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">Created on {{
-                        format_date
-                        ticket.logs.[0].createdAt }} at {{ format_time
-                        ticket.logs.[0].createdAt }}</time>
-                  </div>
-                  <div class=" mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">
-                     Created by: {{ ticket.client.firstName }} {{ ticket.client.lastName }}
-                  </div>
-               </div>
-               {{!-- after this there would be a for each to grab all comments after the creation --}}
-               {{#if ticket.logs.length}}
-               {{#each ticket.logs}}
-            </li>
-            <li class="mb-10 ml-6">
-               <span
-                  class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-                  <img class=" shadow-lg" src="/images/message.png" alt="Create File Image" />
-               </span>
-               <div class="text-sm font-normal text-gray-500 dark:text-gray-300">{{this.type}}</div>
-               <div
-                  class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600">
-                  <div class="text-base {{ determineAlignment this ticket.client.id }} font-normal text-gray-500 dark:text-gray-300">{{this.message}}</div>
-               </div>
-               <div class="flex justify-between px-3">
-                  <div>
-                     <time class=" mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">Logged at {{format_date
-                        this.createdAt}} at {{format_time
-                        this.createdAt}}</time>
-                  </div>
-                  <div class=" mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">
-                     Written by: {{this.user.firstName}}  {{this.user.lastName}}
-                  </div>
-               </div>
-            </li>
-            {{!-- end for each here --}}
-            {{/each}}
-            {{else}}
-            No Logs Available
-         </ol>
-            {{/if}}
-
-         {{!-- end of log details --}}
-
+      <div>
          <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
 
-         <label for="message" class="block mb-2 text-3xl font-medium text-gray-900 dark:text-white">Add message</label>
-         <textarea id="message" rows="4"
+         <label for="message-input" class="block mb-2 text-3xl font-medium text-gray-900 dark:text-white">Add
+            message</label>
+         <textarea id="message-input" rows="4"
             class="block mb-5 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Add message to ticket" required></textarea>
 
          <div class="flex items-center mb-2">
-            <input id="checked-checkbox" type="checkbox" value=""
+            <input id="is-hidden-input" type="checkbox" value=""
                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-            <label for="checked-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hide
+            <label for="is-hidden-input" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hide
                Message?</label>
          </div>
 
-         <button type="submit"
+         <button type="submit" id="submitMessageForm"
             class="text-white bg-blue-700 hover:bg-blue-800 w-full focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 block">Submit
             message</button>
+      </div>
 
 
    </form>
 </div>
-</div>
+
 
 
 <script src="/js/updateTicket.js"></script>
+<script src="/js/message.js"></script>
