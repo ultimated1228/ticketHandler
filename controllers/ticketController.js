@@ -31,6 +31,8 @@ const controller = {
       const { id } = req.params;
       const { subject, description, status, urgency } = req.body;
 
+      console.log(req.body);
+
       const updatedTicket = await Ticket.findByPk(id);
 
       if (!updatedTicket) {
@@ -45,6 +47,7 @@ const controller = {
         status: updatedTicket.status,
         urgency: updatedTicket.urgency,
       };
+      console.log(oldData)
 
       await updatedTicket.logChange(userId, oldData);
 
@@ -55,6 +58,7 @@ const controller = {
         status,
         urgency,
       });
+      console.log(updatedTicket)
 
       return res.status(200).json({
         message: "Ticket updated successfully",

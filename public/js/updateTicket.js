@@ -11,7 +11,7 @@ document.getElementById('saveChangesBtn').addEventListener('click', async () => 
       };
   
       //call to update the ticket
-      const response = await fetch(`/api/ticket/${ticketId}`, {
+      const response = await fetch(`/api/tickets/${ticketId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
