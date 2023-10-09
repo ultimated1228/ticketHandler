@@ -1,31 +1,26 @@
 // npm package and local imports
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../utils/connection");
-const Log = require("./Log");
-const User = require("./User");
-const { findDiff } = require("../utils/helpers");
-
 
 //class definition
 class Ticket extends Model {
   // Instance methods
-async logChange(userId, oldData) {
-const differences = await findDiff(this, oldData);
-if (differences.length == 0) {
-return;
-} else {
-const log = new Log();
-      log.type = "Modified";
-      log.message = `${
-        differences.length
-      } changes were made on ${new Date()} by ${userId}.
+  async logChange(userId, oldData) {
+    const Log = require('./Log');
+    const { findDiff } = require("../utils/helpers");
+    const differences = await findDiff(this, oldData);
+        if (findDiff.length == 0) { return }
+        else {
+            const log = new Log()
+            log.type = 'Modified';
+            log.message = `${findDiff.length} changes were made on ${new Date} by ${userId}.
 ${differences.reduce((fullString, currentString) => {
-return `${fullString}
-${currentString}`;
-}, "")}`;
-      log.userId = userId;
-      log.ticketId = this.id;
-      log.save();
+                return `${fullString}
+${currentString}`
+            }, "")}`;
+            log.userId = userId;
+            log.ticketId = this.id;
+            log.save();
     }
   }
 }
@@ -37,7 +32,7 @@ Ticket.init(
     client_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: User,
+        model: "user",
         key: "id",
       },
       allowNull: false,
@@ -46,7 +41,7 @@ Ticket.init(
     tech_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: User,
+        model: "user",
         key: "id",
       },
       allowNull: true,
@@ -102,23 +97,23 @@ Ticket.init(
     hooks: {
       //after a Ticket instance is created, make a Created Log that is assoicated with it
       afterCreate: async (newTicket) => {
+        const Log = require('./Log');
         try {
-          const req = {
-            message: `Ticket number ${newTicket.id} created`,
+          // await sequelize.sync({ force: true });
+          const newLog = await Log.create({
             type: "Created",
-          };
-
-          const res = await fetch(`/api/logs/${newTicket.id}`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(req),
+            message: `Ticket number ${newTicket.id} created`,
+            userId: newTicket.client_id,
+            ticketId: newTicket.id,
           });
-          if (res.ok) {
-            console.log("\nsuccesfully created log for new ticket\n");
-            location.replace(`/ticket/${newTicket.id}`);
-          }
+          await newLog.save();
+          
+          console.log("\ncreated log for new ticket\n");
+          console.log(newLog.toJSON());
+          return newTicket;
+
         } catch (error) {
-          console.log('\nfailed to create log for new ticket\n')
+          console.log("\nfailed to create log for new ticket\n");
           console.error(error);
         }
       },
