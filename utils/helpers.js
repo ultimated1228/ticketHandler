@@ -6,6 +6,9 @@ module.exports = {
         return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
     },
     findDiff: (newValues, { oldValues }) => {
+        if (!newValues || !oldValues) {
+            return 0;
+          }
         const newKeys = Object.keys(newValues)
         const oldKeys = Object.keys(oldValues)
         if (newKeys.length != oldKeys.length) return 0;

@@ -22,6 +22,7 @@ module.exports = {
             res.status(500).json(error);
         }
     },
+    
     renderLogin: async function (req, res) {
         try {
             res.render('login', {
@@ -33,6 +34,7 @@ module.exports = {
             res.status(500).json(error);
         }
     },
+
     renderTicket: async function (req, res) {
         try {
 

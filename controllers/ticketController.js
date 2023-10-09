@@ -27,6 +27,7 @@ const controller = {
   // Controller for editing a ticket
   editTicket: async (req, res) => {
     try {
+      console.log("hello");
       const { id } = req.params;
       const { subject, description, status, urgency } = req.body;
 

@@ -1,5 +1,3 @@
-const { Ticket, User } = require("../../models");
-
 module.exports = {
   serializeData: (tickets) => {
     return tickets.map((ticket) => ({

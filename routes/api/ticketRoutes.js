@@ -3,8 +3,7 @@ const router = express.Router();
 const { createTicket, editTicket, archiveTicket } = require('../../controllers/ticketController');
 
 //POST '/api/tickets'
-router.route('/', createTicket)
-    .post(createTicket);
+router.post('/', createTicket)
 
 router.route('/:id')
     //PUT '/api/tickets/:id'
