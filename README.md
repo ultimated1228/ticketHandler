@@ -147,10 +147,10 @@ You can get in touch with the creators through:
     * [Email Matthew](mailto:)
 * Nathan Tran
     * [Nathan Tran Github](https://github.com/n810tran)
-    * [Email Nathan](mailto:)
+    * [Email Nathan](mailto:nathaniel.k.tran@gmail.com)
 * Moe Jawad
     * [Moe Jawad Github](https://github.com/moe-j22)
-    * [Email Moe](mailto:)
+    * [Email Moe](mailto:kmoe9262@gmail.com)
 
 
 
@@ -169,6 +169,7 @@ You can get in touch with the creators through:
 [Tailwind-url]: https://tailwindcss.com/
 [Mysql.js]: https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white
 [Mysql-url]: https://www.npmjs.com/package/mysql2
+
 [Heroku]: https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
 [Heroku-url]: https://www.npmjs.com/package/mysql2
 
