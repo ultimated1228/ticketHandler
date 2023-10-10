@@ -1152,10 +1152,6 @@ input:checked + .toggle-bg {
   margin-bottom: 1.5rem;
 }
 
-.mb-0 {
-  margin-bottom: 0px;
-}
-
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -2006,14 +2002,14 @@ input:checked + .toggle-bg {
 .hide{
   background-image: url("/images/invisible-eye-90.png");
   width: 15px;
-  height: 12px;
+  height: 15px;
   background-size: cover;
 }
 
 .show{
   background-image: url("/images/eye-90.png");
   width: 15px;
-  height: 12px;
+  height: 15px;
   background-size: cover;
 }
 
