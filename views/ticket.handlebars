@@ -185,11 +185,11 @@
                   class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
                   <img class=" shadow-lg" src="/images/message.png" alt="Create File Image" />
                </span>
-               <div class="flex ">
+               <div class="flex mb-2">
 
                   <div class="text-sm font-normal text-gray-500 dark:text-gray-300">{{this.type}}</div>
 
-                  <span class="ml-5 mb-0 {{determineEyeClass this.isHidden}} {{applyEye this}}"></span>
+                  <button class="swapShowHide"><span class="ml-5 items-center {{determineEyeClass this.isHidden}} {{applyEye this ../currentUserId}}"></span></button>
 
                </div>
                <div
@@ -249,4 +249,4 @@
 
 <script src="/js/updateTicket.js"></script>
 <script src="/js/message.js"></script>
-
+<script src="/js/showHide.js"></script>

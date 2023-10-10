@@ -61,8 +61,8 @@ module.exports = {
         }
     },
 
-    applyEye: (log) => {
-        if (log.type === "Message") {
+    applyEye: (log, currentUser) => {
+        if (log.type === "Message" && currentUser === log.userId) {
             return 'block'
         }
         else {
@@ -78,5 +78,4 @@ module.exports = {
             return 'block';
         }
     }
-
 };
