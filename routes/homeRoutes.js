@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { renderHomepage, renderLogin, renderTicket } = require('../controllers/homeController')
+const { renderHomepage, renderLogin, renderTicket, renderSignup } = require('../controllers/homeController')
 
 // get request to '/' will use renderHomepage for the view if withAuth passes, otherwise withAuth will redirect to the login page
 router.route('/')
@@ -8,6 +8,10 @@ router.route('/')
 
 router.route('/login')
     .get(renderLogin);
+
+    router.route('/signup')
+    .get(renderSignup);
+
 
 router.route('/ticket/:id')
     .get(withAuth, renderTicket);

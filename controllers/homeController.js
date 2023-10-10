@@ -34,6 +34,17 @@ module.exports = {
             res.status(500).json(error);
         }
     },
+    renderSignup: async function (req, res) {
+        try {
+            res.render('signup', {
+                loggedIn: req.session.logged_in
+            });
+            res.status(200);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json(error);
+        }
+    },
 
     renderTicket: async function (req, res) {
         try {

@@ -3,5 +3,12 @@
 <img class="mx-auto h-10 my-6" src="/images/cryptoforge-white.svg" >
 <h5 class="pb-6 text-lg">Welcome {{user}} </h5>
 <h5 class="pb-6 text-lg">Submit and stay informed about your IT support requests</h5>
-
+<span class="w-full inline-flex justify-center">
+     {{#if user}}
+     <a class="px-3" id="logout" ><h5>Logout</h5></a>
+   
+     {{else}}
+    <a class="px-3" href="/login" ><h5>Login</h5></a> | <a class="px-3" href="/signup">Create new account</a></span>
+    {{/if}}
+      <script src="/js/logout.js"></script>
 </div>

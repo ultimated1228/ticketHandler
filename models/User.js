@@ -15,6 +15,7 @@ User.init({
     email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         validate: {
             isEmail: true
         }
@@ -23,10 +24,7 @@ User.init({
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            notEqual: {
-                args: ['password'],
-                msg: 'Password cannot be "password"',
-            },
+            
             len: {
                 args: [6],
                 msg: 'Password must be at least 6 characters long',

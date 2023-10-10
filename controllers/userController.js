@@ -6,10 +6,10 @@ const controller = {
 
     loginUser: async (req, res) => {
         //login user
-        try {
+        //try {
             console.log(req.body)
             const userData = await User.findOne({
-                raw: true,
+            
                 where: { email: req.body.email },
             });
             if (!userData) {
@@ -33,9 +33,28 @@ const controller = {
                 return res.json('ok');
             });
     
-        } catch(err) {
-            res.status(500).json(err);
-        }
+        //} catch(err) {
+            //res.status(500).json(err);
+        //}
+    },
+
+    signupUser: async (req, res) => {
+        //signup user
+        //try {
+            console.log(req.body)
+            const userData= await User.create (req.body)
+    
+            req.session.save(() => {
+                req.session.user_id = userData.id;
+                req.session.logged_in = true;
+                req.session.user_name = userData.firstName;
+                req.session.role = userData.role
+                return res.json(userData);
+            });
+    
+        //} catch(err) {
+            //res.status(500).json(err);
+        //}
     },
 
     logoutUser: (req, res) => {
