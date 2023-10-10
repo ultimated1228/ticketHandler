@@ -171,5 +171,5 @@ You can get in touch with the creators through:
 [Mysql-url]: https://www.npmjs.com/package/mysql2
 
 [Heroku]: https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
-[Heroku-url]: https://www.npmjs.com/package/mysql2
+[Heroku-url]: https://www.heroku.com/
 
