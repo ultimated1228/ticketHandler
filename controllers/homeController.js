@@ -4,7 +4,13 @@ module.exports = {
     renderHomepage: async function (req, res) {
         try {
             const dbTickets = await Ticket.findAll({
+                where: req.session.role === "client"? {
+                    client_id: req.session.user_id,
+                }: {
+                    tech_id: req.session.user_id
+                },
                 include: [{ model: User, as:"client", }, {model: User, as: "tech",}]
+            
             });
             const dbLogs = await Log.findAll({
                 include: [{ model: Ticket }]
