@@ -8,3 +8,17 @@
     min-width: 300px;
 }
 
+.hide{
+    background-image: url("/images/invisible-eye-90.png");
+    width: 15px;
+    height: 12px;
+    background-size: cover;
+}
+
+.show{
+    background-image: url("/images/eye-90.png");
+    width: 15px;
+    height: 12px;
+    background-size: cover;
+}
+

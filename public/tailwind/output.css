@@ -1142,14 +1142,18 @@ input:checked + .toggle-bg {
   margin-bottom: 1rem;
 }
 
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
-.my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+.mb-0 {
+  margin-bottom: 0px;
 }
 
 .mb-1 {
@@ -1178,6 +1182,10 @@ input:checked + .toggle-bg {
 
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+.ml-5 {
+  margin-left: 1.25rem;
 }
 
 .ml-6 {
@@ -1993,6 +2001,20 @@ input:checked + .toggle-bg {
   width: 60%;
   max-width: 800px;
   min-width: 300px;
+}
+
+.hide{
+  background-image: url("/images/invisible-eye-90.png");
+  width: 15px;
+  height: 12px;
+  background-size: cover;
+}
+
+.show{
+  background-image: url("/images/eye-90.png");
+  width: 15px;
+  height: 12px;
+  background-size: cover;
 }
 
 .hover\:border-gray-300:hover {

@@ -21,6 +21,7 @@ document.getElementById("updateTicketForm").addEventListener("submit", async () 
 
       if (response.ok) {
         console.log('Ticket updated successfully');
+        location.reload();
       } else {
         console.error('Failed to update ticket:', response.statusText);
       }

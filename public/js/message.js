@@ -9,14 +9,15 @@ const submitMessage = async (event) => {
     const hiddenBox = document.querySelector('#is-hidden-input');
     console.log(message);
     console.log(hiddenBox);
-    console.log(ticketId)
+    console.log(ticketId);
+    console.log(hiddenBox.checked);
 
     if (message.value.length) {
         const response = await fetch(`/api/logs/`, {
             method: 'POST',
             body: JSON.stringify({
                 message: message.value,
-                ishidden: hiddenBox.value,
+                isHidden: hiddenBox.checked,
                 ticketId: ticketId 
             }),
 
