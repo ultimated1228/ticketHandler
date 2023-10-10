@@ -133,7 +133,7 @@ You can get in touch with the creators through:
     * [Email Matthew](mailto:)
 * Nathan Tran
     * [Nathan Tran Github](https://github.com/n810tran)
-    * [Email Nathan](mailto:)
+    * [Email Nathan](mailto:nathaniel.k.tran@gmail.com)
 * Moe Jawad
     * [Moe Jawad Github](https://github.com/moe-j22)
     * [Email Moe](mailto:kmoe9262@gmail.com)
