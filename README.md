@@ -35,7 +35,7 @@ Our Internal Ticket Management System is designed to streamline and enhance the 
 
 - **Detailed Logs:** The system maintains comprehensive logs for each ticket, recording every interaction, update, and communication. This ensures a clear and detailed history of all actions taken.
 
-- **Assignment and Ownership:** Tickets are assigned to the appropriate technical support personnel based on their expertise or availability, streamlining issue resolution.
+- **Assignment and Ownership:** Tickets can be claimed by the appropriate technical support personnel based on their expertise or availability, streamlining issue resolution.
 
 - **Status Tracking:** Tickets can be tracked through various status stages, such as "Open," "Pending," "Resolved," or "Claimed," providing transparency into their progress.
 
@@ -52,7 +52,7 @@ By implementing our Internal Ticket Management System, you can streamline your o
 <p align="right">(<a href="#back_to_top">back to top</a>)</p>
 
 ## Built With
-This project relies on the following software:
+This application relies on the following software:
 
 * [![Node][Node.js]][node-url]
 * [![Handlebars][Handlebars.js]][Handlebars-url]
@@ -60,13 +60,33 @@ This project relies on the following software:
 * [![Sequelize][Sequelize.js]][Sequelize-url]
 * [![Tailwind][Tailwind.js]][Tailwind-url]
 * [![MySQL][Mysql.js]][Mysql-url]
-* [![Tailwind][Tailwind.js]][Tailwind-url]
+* [![Heroku][Heroku]][Heroku-url]
 
 <p align="right">(<a href="#back_to_top">back to top</a>)</p>
 
 ## Usage
-Example photos:
-<img src=""><br>NEED TO UPDATE
+Example photos:  
+
+<img src="./public/images/homepage.png">  
+Homepage view with dashboard of all related tickets for the currently logged-in user  
+<br><br>
+
+<img src="./public/images/newticketdrawer.png">  
+Drawer on the home page for creating a new ticket  
+<br><br>
+<img src="./public/images/loginpage.png">  
+Login Page  
+<br><br>
+<img src="./public/images/ticketpage.png">  
+Page for an indivdual ticket broken into 3 sections:  
+
+* Header with all ticket information  
+* Bottom-left side with a form to update the ticket information
+* Bottom-right section with a timeline of events for the ticket  
+
+<br>  
+<img src="./public/images/messagedrawer.png">  
+Message drawer/detailed timeline view on the individual ticket page  
 
 <hr>
 
@@ -74,12 +94,6 @@ Example photos:
 
 <img src="">NEED TO UPDATE
 
-<hr>
-
-### Video Walkthrough
-
-[Please click here to see a full video walk through with audio]()
-NEED TO UPDATE
 <br><br>
 
 <p align="right">(<a href="#back_to_top">back to top</a>)</p>
@@ -155,3 +169,6 @@ You can get in touch with the creators through:
 [Tailwind-url]: https://tailwindcss.com/
 [Mysql.js]: https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white
 [Mysql-url]: https://www.npmjs.com/package/mysql2
+[Heroku]: https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
+[Heroku-url]: https://www.npmjs.com/package/mysql2
+
