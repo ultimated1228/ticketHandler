@@ -68,6 +68,15 @@ module.exports = {
         else {
             return 'hidden';
         }
+    },
+
+    hideCreated: (log) => {
+        if (log.type === "Created") {
+            return 'hidden'
+        }
+        else {
+            return 'block';
+        }
     }
 
 };
