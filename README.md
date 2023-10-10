@@ -136,7 +136,7 @@ You can get in touch with the creators through:
     * [Email Nathan](mailto:)
 * Moe Jawad
     * [Moe Jawad Github](https://github.com/moe-j22)
-    * [Email Moe](mailto:)
+    * [Email Moe](mailto:kmoe9262@gmail.com)
 
 
 
