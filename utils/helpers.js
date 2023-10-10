@@ -8,7 +8,7 @@ module.exports = {
     findDiff: (newValues, { oldValues }) => {
         if (!newValues || !oldValues) {
             return 0;
-          }
+        }
         const newKeys = Object.keys(newValues)
         const oldKeys = Object.keys(oldValues)
         if (newKeys.length != oldKeys.length) return 0;
@@ -34,7 +34,7 @@ module.exports = {
         if (urgency === 'High') return 'red-500';
     },
 
-    determineShowHide: (value) => {
+    determineEyeClass: (value) => {
         return value === true ? "hide" : "show";
     },
 
@@ -51,4 +51,23 @@ module.exports = {
             return 'text-left';
         }
     },
+    determineShowHide: (hidden, log, currentUser) => {
+
+        if (hidden === true && currentUser !== log.userId) {
+            return 'hidden';
+        }
+        else {
+            return '';
+        }
+    },
+
+    applyEye: (log) => {
+        if (log.type === "Message") {
+            return 'block'
+        }
+        else {
+            return 'hidden';
+        }
+    }
+
 };

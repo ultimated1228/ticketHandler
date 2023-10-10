@@ -1,5 +1,5 @@
 {{!-- empty div to watch for dynamic classes and out to output.css --}}
-<div classes="bg-green-500 bg-yellow-500 bg-red-500 text-right text-center text-left"></div>
+<div classes="bg-green-500 bg-yellow-500 bg-red-500 text-right text-center text-left hidden"></div>
 {{!-- end empty div --}}
 
 <div class="text-center mb-10">
@@ -179,7 +179,7 @@
          {{#if ticket.logs.length}}
          {{#each ticket.logs}}
 
-         <li class="mb-10 ml-6">
+         <li class="mb-10 ml-6 {{determineShowHide this.isHidden this ../currentUserId}}">
             <span
                class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
                <img class=" shadow-lg" src="/images/message.png" alt="Create File Image" />
@@ -188,7 +188,8 @@
 
             <div class="text-sm font-normal text-gray-500 dark:text-gray-300">{{this.type}}</div>
             
-            <span class="ml-5 mb-0 {{determineShowHide this.isHidden}}"></span>
+            <span class="ml-5 mb-0 {{determineEyeClass this.isHidden}} {{applyEye this}}"></span>
+            
             </div>
             <div
                class="items-center gap-6 justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600">
