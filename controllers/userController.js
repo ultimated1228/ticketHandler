@@ -24,7 +24,7 @@ const controller = {
             if (!validPassword) {
                 return res.status(400).json({ message: 'Login failed. Please try again!' });
             }
-    
+            console.log(userData)
             req.session.save(() => {
                 req.session.user_id = userData.id;
                 req.session.logged_in = true;

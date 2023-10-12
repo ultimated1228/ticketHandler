@@ -77,5 +77,10 @@ module.exports = {
         else {
             return 'block';
         }
+    },
+
+    statusOpen: (status, role) => {
+        return (status === "Open" && role === "tech");    
     }
+    
 };

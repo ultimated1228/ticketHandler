@@ -1,4 +1,5 @@
 const { Log, Ticket, User } = require('../models');
+const { Op } = require("sequelize");
 
 module.exports = {
     renderHomepage: async function (req, res) {
@@ -7,7 +8,10 @@ module.exports = {
                 where: req.session.role === "client"? {
                     client_id: req.session.user_id,
                 }: {
-                    tech_id: req.session.user_id
+                    [Op.or]: [
+                        { tech_id: req.session.user_id },
+                        { status: "Open" }
+                    ]
                 },
                 include: [{ model: User, as:"client", }, {model: User, as: "tech",}]
             
@@ -21,7 +25,8 @@ module.exports = {
             const logs = dbLogs.map((log) => {
                 return log.get({ plain: true })
             });
-            res.render('homepage', { tickets, logs, user:req.session.user_name })
+            console.log(req.session.role)
+            res.render('homepage', { tickets, logs, user:req.session.user_name, userRole: req.session.role })
             res.status(200);
         } catch (error) {
             console.error(error);

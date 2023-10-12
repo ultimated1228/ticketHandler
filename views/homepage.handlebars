@@ -86,11 +86,11 @@
                 <td class="px-6 py-4">
                     {{format_date ticket.createdAt}}
                 </td>
-                {{!-- {{if }} user is tech and ticket is unclaimed, show claim button --}}
+                {{#if (statusOpen ticket.status ../userRole)}}
                 <td class="px-6 py-4 text-right">
                     <button class="claim-button font-medium text-blue-600 dark:text-blue-500 hover:underline">Claim</button>
                 </td>
-                {{!-- {{/if}} --}}
+                {{/if}}
             </tr>
             {{/each}}
         </tbody>
