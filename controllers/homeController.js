@@ -25,7 +25,6 @@ module.exports = {
             const logs = dbLogs.map((log) => {
                 return log.get({ plain: true })
             });
-            console.log(req.session.role)
             res.render('homepage', { tickets, logs, user:req.session.user_name, userRole: req.session.role })
             res.status(200);
         } catch (error) {

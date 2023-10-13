@@ -13,10 +13,10 @@ module.exports = {
       },
       tech: ticket.tech
         ? {
-            id: ticket.tech.id,
-            firstName: ticket.tech.firstName,
-            lastName: ticket.tech.lastName,
-          }
+          id: ticket.tech.id,
+          firstName: ticket.tech.firstName,
+          lastName: ticket.tech.lastName,
+        }
         : null,
     }));
   },
@@ -69,4 +69,5 @@ module.exports = {
       res.status(500).json({ error: "Internal Server Error" });
     }
   },
+
 };

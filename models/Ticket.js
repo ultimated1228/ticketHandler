@@ -121,6 +121,9 @@ Ticket.init(
         if (updatedTicket.status == "Resolved") {
           updatedTicket.isArchived = true;
         }
+        if (updatedTicket.tech_id && updatedTicket.status === "Open"){
+          updatedTicket.status = "Claimed";
+        }
         return updatedTicket;
       },
     },

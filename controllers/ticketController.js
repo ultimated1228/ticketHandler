@@ -94,6 +94,28 @@ const controller = {
       res.status(500).json({ error: "Internal Server Error" });
     }
   },
+
+  assignTech: async (req, res) => {
+    try{ 
+    const claimedTicket = await Ticket.findByPk(req.params.ticketId);
+
+    if (!claimedTicket) {
+      return res.status(404).json({ error: "Ticket not found" });
+    }
+
+    claimedTicket.tech_id = req.session.user_id;
+    claimedTicket.status = "Claimed";
+      await claimedTicket.save();
+
+      return res.json({
+        message: "Ticket claimed successfully",
+        ticket: claimedTicket,
+      });
+    } catch (error) {
+      console.error("Error archiving ticket:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  },
 };
 
 module.exports = controller;
