@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 if (response.ok) {
+                    location.replace("/");
                     console.info('Ticket Claimed');
                 } else {
                     console.error('Error claiming the ticket');
